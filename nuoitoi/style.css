@@ -6,13 +6,13 @@
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #020617; /* nền tổng thể rất tối */
-  color: #e5e7eb;
+  background: #e5f9ed; /* nền tổng thể sáng, hơi xanh lá */
+  color: #111827;       /* chữ màu tối cho dễ đọc */
   line-height: 1.6;
 }
 
 a {
-  color: #38bdf8;
+  color: #16a34a;
   text-decoration: none;
 }
 
@@ -22,11 +22,11 @@ a:hover {
 
 header {
   padding: 24px 16px;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.5);
   position: sticky;
   top: 0;
   backdrop-filter: blur(10px);
-  background: rgba(15, 23, 42, 0.9);
+  background: linear-gradient(90deg, #bbf7d0, #86efac);
   z-index: 10;
 }
 
@@ -46,17 +46,19 @@ header {
   font-weight: 800;
   font-size: 1.25rem;
   letter-spacing: 0.08em;
+  color: #166534;
 }
 
 .badge {
   display: inline-flex;
   align-items: center;
   border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.6);
+  border: 1px solid rgba(34, 197, 94, 0.6);
   padding: 4px 10px;
   font-size: 0.75rem;
   gap: 6px;
-  background: rgba(15, 23, 42, 0.8);
+  background: rgba(240, 253, 244, 0.9);
+  color: #166534;
 }
 
 .badge-dot {
@@ -72,24 +74,29 @@ main {
 
 .hero {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
+  padding: 20px 16px 28px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #ecfdf5, #bbf7d0);
+  border: 1px solid rgba(22, 163, 74, 0.2);
 }
 
 .hero-title {
   font-size: clamp(2.25rem, 5vw, 3rem);
   font-weight: 800;
   margin-bottom: 12px;
+  color: #14532d;
 }
 
 .hero-subtitle {
-  font-size: 1.15rem;
-  color: #cbd5f5;
+  font-size: 1.1rem;
+  color: #166534;
   margin-bottom: 24px;
 }
 
 .hero-highlight {
-  font-weight: 700;
-  color: #f97316;
+  font-weight: 800;
+  color: #ef4444;
 }
 
 .hero-actions {
@@ -108,72 +115,85 @@ main {
   border: 1px solid transparent;
   cursor: pointer;
   background: transparent;
-  color: inherit;
+  color: #14532d;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #22c55e, #a3e635);
+  background: linear-gradient(135deg, #22c55e, #4ade80);
   color: #022c22;
-  border-color: #22c55e;
+  border-color: #16a34a;
 }
 
 .btn-outline {
-  border-color: rgba(148, 163, 184, 0.6);
+  border-color: rgba(22, 163, 74, 0.5);
+  background: #f0fdf4;
 }
 
 .hero-note {
   font-size: 0.85rem;
-  color: #9ca3af;
+  color: #4b5563;
+}
+
+.tag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #6b7280;
+  margin-bottom: 6px;
+  display: inline-block;
 }
 
 /* ==== VÙNG SECTION CHUNG ==== */
 
 section {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .section-block {
   border-radius: 20px;
   padding: 20px 18px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  background: #ffffff;
 }
 
-/* Mỗi vùng 1 tông màu khác nhau */
+/* Mỗi vùng 1 tông màu xanh lá nhẹ khác nhau */
 
 .section-why {
-  background: radial-gradient(circle at top left, rgba(59,130,246,0.25), rgba(15,23,42,0.98));
+  background: linear-gradient(135deg, #ecfdf5, #d1fae5);
 }
 
 .section-commit {
-  background: radial-gradient(circle at top right, rgba(168,85,247,0.22), rgba(15,23,42,0.98));
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
 }
 
 .section-compare {
-  background: radial-gradient(circle at center, rgba(248,250,252,0.03), rgba(15,23,42,1));
+  background: linear-gradient(135deg, #f9fafb, #e5f9ed);
 }
 
 .section-donate {
-  background: radial-gradient(circle at top, rgba(45,212,191,0.3), rgba(15,23,42,1));
+  background: linear-gradient(135deg, #ecfdf3, #ccfbf1);
 }
 
 .section-budget {
-  background: radial-gradient(circle at top left, rgba(74,222,128,0.25), rgba(15,23,42,1));
+  background: linear-gradient(135deg, #f0fdf4, #bbf7d0);
 }
 
 .section-message {
-  background: radial-gradient(circle at bottom, rgba(148,163,184,0.25), rgba(15,23,42,1));
+  background: linear-gradient(135deg, #f9fafb, #e5e7eb);
 }
 
 h2 {
   font-size: 1.4rem;
   margin-bottom: 12px;
   font-weight: 700;
+  color: #166534;
 }
 
 h3 {
   font-size: 1.05rem;
   margin: 16px 0 6px;
   font-weight: 600;
+  color: #15803d;
 }
 
 p {
@@ -193,16 +213,16 @@ li {
 
 .card {
   border-radius: 16px;
-  border: 1px solid rgba(148, 163, 184, 0.35);
+  border: 1px solid rgba(22, 163, 74, 0.3);
   padding: 16px 18px;
-  background: radial-gradient(circle at top left, rgba(56,189,248,0.12), rgba(15,23,42,0.95));
+  background: #f0fdf4;
 }
 
 .card-soft {
   border-radius: 16px;
   border: 1px dashed rgba(148, 163, 184, 0.7);
   padding: 16px 18px;
-  background: rgba(15, 23, 42, 0.9);
+  background: #f9fafb;
 }
 
 /* So sánh */
@@ -222,26 +242,19 @@ li {
 */
 
 .compare-bad {
-  border: 1px solid rgba(248, 113, 113, 0.6);
+  border: 1px solid rgba(248, 113, 113, 0.7);
   border-radius: 14px;
   padding: 12px 14px;
-  background: rgba(127, 29, 29, 0.35);
+  background: #fee2e2;
+  color: #7f1d1d;
 }
 
 .compare-good {
-  border: 1px solid rgba(52, 211, 153, 0.7);
+  border: 1px solid rgba(34, 197, 94, 0.7);
   border-radius: 14px;
   padding: 12px 14px;
-  background: rgba(6, 95, 70, 0.4);
-}
-
-.tag {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #9ca3af;
-  margin-bottom: 6px;
-  display: inline-block;
+  background: #dcfce7;
+  color: #14532d;
 }
 
 /* Donate + QR */
@@ -252,14 +265,14 @@ li {
 
 .qr-frame {
   margin: 16px auto 12px;
-  width: 180px;
-  height: 180px;
+  width: 190px;
+  height: 190px;
   border-radius: 24px;
-  border: 1px solid rgba(148, 163, 184, 0.4);
+  border: 1px solid rgba(22, 163, 74, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #020617;
+  background: #f0fdf4;
 }
 
 .qr-image {
@@ -271,6 +284,7 @@ li {
 .donate-flash {
   font-size: 0.9rem;
   margin-top: 8px;
+  color: #166534;
 }
 
 .pill {
@@ -280,9 +294,9 @@ li {
   border-radius: 999px;
   padding: 4px 10px;
   font-size: 0.75rem;
-  background: rgba(251, 191, 36, 0.12);
-  border: 1px solid rgba(251, 191, 36, 0.4);
-  color: #facc15;
+  background: #fef9c3;
+  border: 1px solid #facc15;
+  color: #854d0e;
   margin-top: 6px;
 }
 
@@ -295,18 +309,18 @@ li {
 }
 
 .budget-label {
-  color: #e5e7eb;
+  color: #111827;
 }
 
 .budget-percent {
   font-weight: 700;
-  color: #22c55e;
+  color: #15803d;
   white-space: nowrap;
 }
 
 .budget-note {
   font-size: 0.8rem;
-  color: #9ca3af;
+  color: #4b5563;
   margin-top: 8px;
 }
 
@@ -314,16 +328,20 @@ li {
 
 .disclaimer {
   font-size: 0.78rem;
-  color: #9ca3af;
+  color: #4b5563;
   margin-top: 12px;
-  border-top: 1px dashed rgba(148, 163, 184, 0.4);
+  border-top: 1px dashed rgba(148, 163, 184, 0.8);
   padding-top: 10px;
 }
 
+/* Footer */
+
 footer {
   padding: 24px 16px 32px;
-  border-top: 1px solid rgba(148, 163, 184, 0.2);
+  border-top: 1px solid rgba(148, 163, 184, 0.7);
   font-size: 0.8rem;
-  color: #9ca3af;
+  color: #4b5563;
   text-align: center;
+  background: #f9fafb;
+  margin-top: 16px;
 }
