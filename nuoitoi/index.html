@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <title>Nuôi Tôi - Minh bạch từng đồng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Link tới file CSS bên ngoài -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -100,11 +99,10 @@
       </section>
 
       <!-- DONATE + QR -->
-      <section class="section-block section-donate donate-box">
+      <section id="donate" class="section-block section-donate donate-box">
         <h2>Donate nếu bạn đã cười</h2>
         <p>Thấy vui, thấy thương, hoặc đơn giản là muốn theo dõi một bảng sao kê thú vị?</p>
         <div class="qr-frame">
-          <!-- ĐỔI src phía dưới thành ảnh QR của bạn -->
           <img src="qr.png" alt="QR chuyển khoản" class="qr-image" />
         </div>
         <p class="donate-flash">
@@ -116,7 +114,7 @@
       </section>
 
       <!-- NGÂN SÁCH -->
-      <section class="section-block section-budget">
+      <section id="budget" class="section-block section-budget">
         <h2>Tôi sẽ dùng tiền vào đâu?</h2>
         <p>Tiền bạn gửi không “biến mất”, nó được chia theo tỉ lệ rõ ràng:</p>
         <ul class="budget-list">
@@ -178,6 +176,17 @@
   <footer>
     Nuôi tôi – phiên bản vui vẻ. Nếu bạn đang cười, bảng sao kê đã thành công.
   </footer>
+
+  <!-- SCRIPT SCROLL -->
+  <script>
+    document.querySelector('.btn-primary').addEventListener('click', function () {
+      document.getElementById('donate').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    document.querySelector('.btn-outline').addEventListener('click', function () {
+      document.getElementById('budget').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
 
 </body>
 </html>
