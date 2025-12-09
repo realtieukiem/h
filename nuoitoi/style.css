@@ -1,0 +1,329 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #020617; /* nền tổng thể rất tối */
+  color: #e5e7eb;
+  line-height: 1.6;
+}
+
+a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+header {
+  padding: 24px 16px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: rgba(15, 23, 42, 0.9);
+  z-index: 10;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: 0.08em;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  gap: 6px;
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #22c55e;
+}
+
+main {
+  padding: 32px 16px 64px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hero-title {
+  font-size: clamp(2.25rem, 5vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: #cbd5f5;
+  margin-bottom: 24px;
+}
+
+.hero-highlight {
+  font-weight: 700;
+  color: #f97316;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.btn {
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  background: transparent;
+  color: inherit;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #22c55e, #a3e635);
+  color: #022c22;
+  border-color: #22c55e;
+}
+
+.btn-outline {
+  border-color: rgba(148, 163, 184, 0.6);
+}
+
+.hero-note {
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+/* ==== VÙNG SECTION CHUNG ==== */
+
+section {
+  margin-bottom: 32px;
+}
+
+.section-block {
+  border-radius: 20px;
+  padding: 20px 18px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+/* Mỗi vùng 1 tông màu khác nhau */
+
+.section-why {
+  background: radial-gradient(circle at top left, rgba(59,130,246,0.25), rgba(15,23,42,0.98));
+}
+
+.section-commit {
+  background: radial-gradient(circle at top right, rgba(168,85,247,0.22), rgba(15,23,42,0.98));
+}
+
+.section-compare {
+  background: radial-gradient(circle at center, rgba(248,250,252,0.03), rgba(15,23,42,1));
+}
+
+.section-donate {
+  background: radial-gradient(circle at top, rgba(45,212,191,0.3), rgba(15,23,42,1));
+}
+
+.section-budget {
+  background: radial-gradient(circle at top left, rgba(74,222,128,0.25), rgba(15,23,42,1));
+}
+
+.section-message {
+  background: radial-gradient(circle at bottom, rgba(148,163,184,0.25), rgba(15,23,42,1));
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin: 16px 0 6px;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 8px;
+}
+
+ul {
+  margin-left: 18px;
+  margin-bottom: 8px;
+}
+
+li {
+  margin-bottom: 4px;
+}
+
+/* Card & vùng nội dung trong block */
+
+.card {
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  padding: 16px 18px;
+  background: radial-gradient(circle at top left, rgba(56,189,248,0.12), rgba(15,23,42,0.95));
+}
+
+.card-soft {
+  border-radius: 16px;
+  border: 1px dashed rgba(148, 163, 184, 0.7);
+  padding: 16px 18px;
+  background: rgba(15, 23, 42, 0.9);
+}
+
+/* So sánh */
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* Nếu muốn thành 2 cột trên màn hình lớn, bật đoạn này:
+@media (min-width: 700px) {
+  .compare-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+*/
+
+.compare-bad {
+  border: 1px solid rgba(248, 113, 113, 0.6);
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: rgba(127, 29, 29, 0.35);
+}
+
+.compare-good {
+  border: 1px solid rgba(52, 211, 153, 0.7);
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: rgba(6, 95, 70, 0.4);
+}
+
+.tag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #9ca3af;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+
+/* Donate + QR */
+
+.donate-box {
+  text-align: center;
+}
+
+.qr-frame {
+  margin: 16px auto 12px;
+  width: 180px;
+  height: 180px;
+  border-radius: 24px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #020617;
+}
+
+.qr-image {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 16px;
+}
+
+.donate-flash {
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  background: rgba(251, 191, 36, 0.12);
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  color: #facc15;
+  margin-top: 6px;
+}
+
+/* Ngân sách */
+
+.budget-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.budget-label {
+  color: #e5e7eb;
+}
+
+.budget-percent {
+  font-weight: 700;
+  color: #22c55e;
+  white-space: nowrap;
+}
+
+.budget-note {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin-top: 8px;
+}
+
+/* Lời nhắn */
+
+.disclaimer {
+  font-size: 0.78rem;
+  color: #9ca3af;
+  margin-top: 12px;
+  border-top: 1px dashed rgba(148, 163, 184, 0.4);
+  padding-top: 10px;
+}
+
+footer {
+  padding: 24px 16px 32px;
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+  font-size: 0.8rem;
+  color: #9ca3af;
+  text-align: center;
+}
