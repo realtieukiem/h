@@ -4,6 +4,14 @@
   <meta charset="UTF-8" />
   <title>Nuôi Tôi - Minh bạch từng đồng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+  />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -21,7 +29,6 @@
   <main>
     <div class="container">
 
-      <!-- HERO -->
       <section class="hero">
         <p class="tag">Gọi là từ thiện cũng được, gọi là “nuôi tôi” cũng vui</p>
         <h1 class="hero-title">
@@ -40,29 +47,55 @@
         </p>
       </section>
 
-      <!-- TẠI SAO NÊN NUÔI TÔI -->
       <section class="section-block section-why">
-        <h2>Tại sao nên nuôi tôi?</h2>
+        <div class="why-header d-flex align-items-center mb-3">
+          <span class="why-icon me-2">🎯</span>
+          <h2 class="mb-0">Tại Sao Nên Nuôi Tôi?</h2>
+        </div>
 
-        <h3>⚡ Sao kê realtime</h3>
-        <p>Mọi khoản thu – chi đều được cập nhật liên tục, nhanh hơn cả lúc bạn bấm nút chuyển khoản.</p>
+        <div class="row g-3 why-grid">
+          <div class="col-12 col-md-6 col-lg-3 why-col">
+            <div class="why-card">
+              <div class="why-card-icon">📊</div>
+              <h3>Sao Kê Realtime</h3>
+              <p>Cập nhật từng giây! Còn nhanh hơn cả tốc độ bạn chuyển tiền!</p>
+            </div>
+          </div>
 
-        <h3>📊 Minh bạch hơn cả 100%</h3>
-        <p>Từ ly trà đá đến tô mì gói đều có ghi chú, ảnh chụp, không sót thứ gì.</p>
+          <div class="col-12 col-md-6 col-lg-3 why-col">
+            <div class="why-card">
+              <div class="why-card-icon">🔍</div>
+              <h3>Minh Bạch 300%</h3>
+              <p>Hơn cả 100%! Tôi còn báo cáo cả việc mua ly trà sữa!</p>
+            </div>
+          </div>
 
-        <h3>🧠 Chi tiêu tỉnh táo</h3>
-        <p>Không xài sang, không sắm siêu xe, chỉ tập trung ăn ở – học hành – làm việc.</p>
+          <div class="col-12 col-md-6 col-lg-3 why-col">
+            <div class="why-card">
+              <div class="why-card-icon">💸</div>
+              <h3>Chi Tiêu Hợp Lý</h3>
+              <p>Không mua xe hơi, nhà cửa. Chỉ ăn cơm với mì tôm thôi!</p>
+            </div>
+          </div>
 
-        <h3>📱 App tracking 24/7</h3>
-        <p>Bạn có thể xem lịch sử chi tiêu, xem tôi ăn gì, uống gì, đi đâu mỗi ngày qua hệ thống theo dõi.</p>
+          <div class="col-12 col-md-6 col-lg-3 why-col">
+            <div class="why-card">
+              <div class="why-card-icon">📱</div>
+              <h3>App Tracking</h3>
+              <p>Theo dõi 24/7 tôi ăn gì, uống gì, đi đâu. Như “Big Brother” vậy!</p>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <!-- CAM KẾT -->
       <section class="section-block section-commit">
-        <h2>Cam kết vàng của tôi</h2>
+        <div class="section-title">
+          <span class="section-icon section-icon-commit">🎪</span>
+          <h2>Cam Kết Vàng Của Tôi:</h2>
+        </div>
         <div class="card">
           <ul>
-            <li>Sao kê hàng ngày, khoảng 6 giờ sáng – kể cả cuối tuần & ngày lễ.</li>
+            <li>Sao kê hàng ngày, khoảng 6 giờ sáng – kể cả cuối tuần và ngày lễ.</li>
             <li>Mọi khoản chi từ vài nghìn đến vài trăm nghìn đều được ghi rõ.</li>
             <li>Có lưu hoá đơn, ảnh bill, biên lai để đối chiếu khi cần.</li>
             <li>Có thể livestream “mở thùng mì gói” nếu bạn yêu cầu.</li>
@@ -71,34 +104,59 @@
         </div>
       </section>
 
-      <!-- SO SÁNH -->
       <section class="section-block section-compare">
-        <h2>So sánh với… “người ta”</h2>
+        <div class="section-title">
+          <span class="section-icon section-icon-compare">⚖️</span>
+          <h2>So Sánh Với "Người Khác"</h2>
+        </div>
 
         <div class="compare-grid">
           <div class="compare-bad">
             <div class="tag">Người khác</div>
             <ul>
-              <li>Sao kê sau vài năm, hoặc… chẳng bao giờ.</li>
-              <li>Bảng Excel mờ mờ ảo ảo, nhìn hoa cả mắt.</li>
-              <li>Số liệu làm tròn cho… tiện, sai vài đồng cũng kệ.</li>
-              <li>Hỏi nhiều là bị chặn, khỏi cần giải thích.</li>
+              <li>
+                <i class="bi bi-x-circle-fill text-danger me-2"></i>
+                Sao kê sau vài năm, hoặc… chẳng bao giờ.
+              </li>
+              <li>
+                <i class="bi bi-x-circle-fill text-danger me-2"></i>
+                Bảng Excel mờ mờ ảo ảo, nhìn hoa cả mắt.
+              </li>
+              <li>
+                <i class="bi bi-x-circle-fill text-danger me-2"></i>
+                Số liệu làm tròn cho… tiện, sai vài đồng cũng kệ.
+              </li>
+              <li>
+                <i class="bi bi-x-circle-fill text-danger me-2"></i>
+                Hỏi nhiều là bị chặn, khỏi cần giải thích.
+              </li>
             </ul>
           </div>
 
           <div class="compare-good">
             <div class="tag">Nuôi tôi</div>
             <ul>
-              <li>Có thể báo trước cả kế hoạch chi tiêu để bạn duyệt.</li>
-              <li>Bảng chi tiết rõ nét, dễ đọc, dễ kiểm tra.</li>
-              <li>Từng đồng đều khớp, không “làm tròn cho vui”.</li>
-              <li>Phản hồi nhanh, không né câu hỏi khó.</li>
+              <li>
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Có thể báo trước cả kế hoạch chi tiêu để bạn duyệt.
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Bảng chi tiết rõ nét, dễ đọc, dễ kiểm tra.
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Từng đồng đều khớp, không “làm tròn cho vui”.
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Phản hồi nhanh, không né câu hỏi khó.
+              </li>
             </ul>
           </div>
         </div>
       </section>
 
-      <!-- DONATE + QR -->
       <section id="donate" class="section-block section-donate donate-box">
         <h2>Donate nếu bạn đã cười</h2>
         <p>Thấy vui, thấy thương, hoặc đơn giản là muốn theo dõi một bảng sao kê thú vị?</p>
@@ -106,51 +164,34 @@
           <img src="qr.png" alt="QR chuyển khoản" class="qr-image" />
         </div>
         <p class="donate-flash">
-          Chuyển xong có thể nhận mail/tin nhắn tự động kèm link sao kê.
+          Chuyển xong có thể nhận mail hoặc tin nhắn tự động kèm link sao kê.
         </p>
         <div class="pill">
           ⚡ Cập nhật thu chi gần như tức thì
         </div>
       </section>
 
-      <!-- NGÂN SÁCH -->
       <section id="budget" class="section-block section-budget">
-        <h2>Tôi sẽ dùng tiền vào đâu?</h2>
-        <p>Tiền bạn gửi không “biến mất”, nó được chia theo tỉ lệ rõ ràng:</p>
-        <ul class="budget-list">
-          <li>
-            <span class="budget-label">Ăn uống cơ bản (cơm, mì, trứng, rau…)</span>
-            <span class="budget-percent">40%</span>
-          </li>
-          <li>
-            <span class="budget-label">Tiền điện, nước, internet để còn sao kê</span>
-            <span class="budget-percent">20%</span>
-          </li>
-          <li>
-            <span class="budget-label">Thuê chỗ ở khiêm tốn, không phải penthouse</span>
-            <span class="budget-percent">15%</span>
-          </li>
-          <li>
-            <span class="budget-label">Chi phí sức khoẻ cơ bản</span>
-            <span class="budget-percent">10%</span>
-          </li>
-          <li>
-            <span class="budget-label">Sách & khoá học để nâng cấp bản thân</span>
-            <span class="budget-percent">10%</span>
-          </li>
-          <li>
-            <span class="budget-label">Giải trí giá rẻ (YouTube, game free, v.v.)</span>
-            <span class="budget-percent">5%</span>
-          </li>
-        </ul>
+        <div class="section-title">
+          <span class="section-icon section-icon-budget">📈</span>
+          <h2>Tôi Sẽ Dùng Tiền Vào Đâu?</h2>
+        </div>
+        <p>Tiền bạn gửi sẽ được chia minh bạch, phần trăm thể hiện trực tiếp trên biểu đồ:</p>
+
+        <div class="budget-chart-wrapper">
+          <canvas id="budgetChart"></canvas>
+        </div>
+
         <p class="budget-note">
-          Biểu đồ chi tiết có thể được cập nhật hàng tuần trên website hoặc file sao kê.
+          Di chuột vào từng phần để xem chi tiết hạng mục chi tiêu.
         </p>
       </section>
 
-      <!-- LỜI NHẮN -->
       <section class="section-block section-message">
-        <h2>Lời nhắn chân thành</h2>
+        <div class="section-title">
+          <span class="section-icon section-icon-message">❤️</span>
+          <h2>Lời Nhắn Từ Trái Tim</h2>
+        </div>
         <div class="card-soft">
           <p>
             Thời buổi này, chuyện quyên góp – từ thiện luôn khiến nhiều người dè chừng.
@@ -165,7 +206,7 @@
           </p>
           <p class="disclaimer">
             ⚠️ Lưu ý: Đây là nội dung mang tính chất vui vẻ – hài hước. Không nhằm công kích
-            hay ám chỉ bất kỳ cá nhân / tổ chức nào.
+            hay ám chỉ bất kỳ cá nhân hoặc tổ chức nào.
           </p>
         </div>
       </section>
@@ -177,8 +218,60 @@
     Nuôi tôi – phiên bản vui vẻ. Nếu bạn đang cười, bảng sao kê đã thành công.
   </footer>
 
-  <!-- SCRIPT SCROLL -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+
   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const ctx = document.getElementById('budgetChart');
+      if (ctx) {
+        Chart.register(ChartDataLabels);
+        new Chart(ctx, {
+          type: 'pie',
+          data: {
+            labels: [
+              'Ăn uống cơ bản',
+              'Điện, nước, internet',
+              'Chỗ ở',
+              'Sức khoẻ cơ bản',
+              'Sách và khoá học',
+              'Giải trí giá rẻ'
+            ],
+            datasets: [{
+              data: [40, 20, 15, 10, 10, 5],
+              backgroundColor: [
+                'rgba(34, 197, 94, 0.9)',
+                'rgba(59, 130, 246, 0.9)',
+                'rgba(234, 179, 8, 0.9)',
+                'rgba(236, 72, 153, 0.9)',
+                'rgba(168, 85, 247, 0.9)',
+                'rgba(148, 163, 184, 0.9)'
+              ],
+              borderWidth: 0
+            }]
+          },
+          options: {
+            plugins: {
+              legend: {
+                position: 'bottom'
+              },
+              datalabels: {
+                color: '#ffffff',
+                formatter: function(value) {
+                  return value + '%';
+                },
+                font: {
+                  weight: 'bold',
+                  size: 12
+                }
+              }
+            }
+          }
+        });
+      }
+    });
+
     document.querySelector('.btn-primary').addEventListener('click', function () {
       document.getElementById('donate').scrollIntoView({ behavior: 'smooth' });
     });

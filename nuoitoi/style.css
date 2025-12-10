@@ -6,8 +6,8 @@
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #e5f9ed; /* nền tổng thể sáng, hơi xanh lá */
-  color: #111827;       /* chữ màu tối cho dễ đọc */
+  background: #e5f9ed;
+  color: #111827;
   line-height: 1.6;
 }
 
@@ -114,8 +114,6 @@ main {
   font-weight: 600;
   border: 1px solid transparent;
   cursor: pointer;
-  background: transparent;
-  color: #14532d;
 }
 
 .btn-primary {
@@ -127,6 +125,7 @@ main {
 .btn-outline {
   border-color: rgba(22, 163, 74, 0.5);
   background: #f0fdf4;
+  color: #14532d;
 }
 
 .hero-note {
@@ -143,8 +142,6 @@ main {
   display: inline-block;
 }
 
-/* ==== VÙNG SECTION CHUNG ==== */
-
 section {
   margin-bottom: 24px;
 }
@@ -156,14 +153,12 @@ section {
   background: #ffffff;
 }
 
-/* Mỗi vùng 1 tông màu xanh lá nhẹ khác nhau */
-
 .section-why {
-  background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+  background: #f9fafb;
 }
 
 .section-commit {
-  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  background: #fff7ed;
 }
 
 .section-compare {
@@ -191,9 +186,9 @@ h2 {
 
 h3 {
   font-size: 1.05rem;
-  margin: 16px 0 6px;
-  font-weight: 600;
-  color: #15803d;
+  margin: 12px 0 6px;
+  font-weight: 700;
+  color: #4f46e5;
 }
 
 p {
@@ -209,7 +204,77 @@ li {
   margin-bottom: 4px;
 }
 
-/* Card & vùng nội dung trong block */
+.why-header h2 {
+  color: #4f46e5;
+}
+
+.why-icon {
+  font-size: 1.5rem;
+}
+
+.why-grid {
+  margin-top: 4px;
+}
+
+.why-col {
+  display: flex;
+}
+
+.why-card {
+  background: #f5f3ff;
+  border-radius: 24px;
+  padding: 20px 14px;
+  text-align: center;
+  border: 1px solid #e0e7ff;
+  box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+.why-card-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.why-card p {
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.why-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(129, 140, 248, 0.3);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.section-icon {
+  font-size: 1.4rem;
+}
+
+.section-commit h2 {
+  color: #fb7185;
+}
+
+.section-compare h2 {
+  color: #4f46e5;
+}
+
+.section-budget h2 {
+  color: #4f46e5;
+}
+
+.section-message h2 {
+  color: #4f46e5;
+}
 
 .card {
   border-radius: 16px;
@@ -225,21 +290,36 @@ li {
   background: #f9fafb;
 }
 
-/* So sánh */
-
 .compare-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
 }
 
-/* Nếu muốn thành 2 cột trên màn hình lớn, bật đoạn này:
 @media (min-width: 700px) {
   .compare-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
-*/
+
+.compare-bad,
+.compare-good {
+  list-style: none;
+}
+
+.compare-bad ul,
+.compare-good ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.compare-bad li,
+.compare-good li {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
 
 .compare-bad {
   border: 1px solid rgba(248, 113, 113, 0.7);
@@ -256,8 +336,6 @@ li {
   background: #dcfce7;
   color: #14532d;
 }
-
-/* Donate + QR */
 
 .donate-box {
   text-align: center;
@@ -300,22 +378,9 @@ li {
   margin-top: 6px;
 }
 
-/* Ngân sách */
-
-.budget-list li {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.budget-label {
-  color: #111827;
-}
-
-.budget-percent {
-  font-weight: 700;
-  color: #15803d;
-  white-space: nowrap;
+.budget-chart-wrapper {
+  max-width: 360px;
+  margin: 16px auto 0;
 }
 
 .budget-note {
@@ -324,8 +389,6 @@ li {
   margin-top: 8px;
 }
 
-/* Lời nhắn */
-
 .disclaimer {
   font-size: 0.78rem;
   color: #4b5563;
@@ -333,8 +396,6 @@ li {
   border-top: 1px dashed rgba(148, 163, 184, 0.8);
   padding-top: 10px;
 }
-
-/* Footer */
 
 footer {
   padding: 24px 16px 32px;
