@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>64 Quẻ Kinh Dịch</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<main class="wrap">
+  <div class="top">
+    <a class="brand" href="index.html">Kinh Dịch</a>
+    <nav class="nav">
+      <a href="index.html">Trang chủ</a>
+      <a href="khong-minh-than-toan.html">Khổng Minh Thần Toán</a>
+      <a href="64-que.html">64 Quẻ</a>
+      <a href="mai-hoa.html">Mai Hoa</a>
+    </nav>
+  </div>
+
+  <section class="hero">
+    <span class="eyebrow">Ngẫu nhiên · Tra cứu · Ngô Tất Tố</span>
+    <h1>64 Quẻ</h1>
+    <p>Bấm để lấy ngẫu nhiên một quẻ trong 64 quẻ Kinh Dịch. Phần luận bên dưới dùng file dữ liệu riêng tóm lược theo bản Kinh Dịch trọn bộ do Ngô Tất Tố dịch và chú giải.</p>
+    <div class="btn-row">
+      <button class="btn" type="button" onclick="random64()">Lấy quẻ ngẫu nhiên</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="tabs">
+      <button class="tab on" type="button" data-tab-target="random" onclick="switchLocalTab('random')">Quẻ ngẫu nhiên</button>
+      <button class="tab" type="button" data-tab-target="catalog" onclick="switchLocalTab('catalog');renderCatalog('catalogGrid')">Đủ 64 quẻ</button>
+    </div>
+    <div id="random" class="tab-panel on">
+      <div id="randomResult" class="random-focus">
+        <div class="card">
+          <h3>Chưa lấy quẻ</h3>
+          <p>Bấm “Lấy quẻ ngẫu nhiên” để hiển thị một quẻ lớn ở giữa.</p>
+        </div>
+      </div>
+    </div>
+    <div id="catalog" class="tab-panel">
+      <div class="catalog" id="catalogGrid"></div>
+    </div>
+  </section>
+  <div class="footer">64 Quẻ Kinh Dịch</div>
+</main>
+<script src="hexagrams-data.js"></script>
+<script src="oracle.js"></script>
+<script src="ngo-tat-to-64.js"></script>
+<script>
+function ngo64(hex){
+  var data=window.NGO_TAT_TO_64 || {};
+  return {
+    source:data.source || {},
+    name:data.names && data.names[hex.id] ? data.names[hex.id] : hex.n,
+    reading:data.readings && data.readings[hex.id] ? data.readings[hex.id] : {
+      theme:hex.m,
+      advice:'Lấy ý chính của quẻ làm trục để chọn bước đi tiếp.'
+    }
+  };
+}
+function ngo64Reading(hex){
+  var data=ngo64(hex);
+  return '<div class="card"><h3>Luận giải theo bản Ngô Tất Tố</h3><div class="reading">'+
+    '<p><strong>Tên trong bản Ngô:</strong> Quẻ '+escapeHtml(data.name)+'.</p>'+
+    '<p><strong>Ý chính:</strong> '+escapeHtml(data.reading.theme)+'</p>'+
+    '<p><strong>Lời khuyên:</strong> '+escapeHtml(data.reading.advice)+'</p>'+
+    '<p class="meta">Nguồn tham khảo: '+escapeHtml(data.source.title || 'Kinh Dịch trọn bộ - Ngô Tất Tố')+'. Dữ liệu hiển thị là bản tóm lược dùng cho tra cứu nhanh.</p>'+
+  '</div></div>';
+}
+function random64(){
+  var hex=randomHex();
+  document.getElementById('randomResult').innerHTML=hexCard(hex,-1,'Quẻ ngẫu nhiên')+ngo64Reading(hex);
+  switchLocalTab('random');
+}
+function renderCatalog(targetId){
+  var target=document.getElementById(targetId);
+  if(!target || target.getAttribute('data-ready')==='1') return;
+  target.innerHTML=HX.map(function(hex){
+    var data=ngo64(hex);
+    return '<button class="card hex-card" type="button" onclick="showHexDetail('+hex.id+')">'+
+      '<div class="hvis">'+lineHtml(hex,-1)+'</div>'+
+      '<div><span class="pill">Quẻ '+hex.id+' · '+escapeHtml(data.name)+'</span>'+
+      '<h3>'+escapeHtml(hex.n)+' <span style="color:var(--gold)">'+escapeHtml(hex.c)+'</span></h3>'+
+      '<p>'+escapeHtml(data.reading.theme)+'</p></div>'+
+    '</button>';
+  }).join('');
+  target.setAttribute('data-ready','1');
+}
+function showHexDetail(id){
+  var hex=HX.filter(function(h){return h.id===id;})[0];
+  if(!hex) return;
+  document.getElementById('randomResult').innerHTML=hexCard(hex,-1,'Tra cứu 64 quẻ')+ngo64Reading(hex);
+  switchLocalTab('random');
+}
+renderCatalog('catalogGrid');
+</script>
+</body>
+</html>

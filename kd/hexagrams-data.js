@@ -1,0 +1,83 @@
+var TT={'111':1,'110':2,'101':3,'100':4,'011':5,'010':6,'001':7,'000':8};
+var TN={1:'Càn',2:'Đoài',3:'Ly',4:'Chấn',5:'Tốn',6:'Khảm',7:'Cấn',8:'Khôn'};
+var HN=['Sơ','Nhị','Tam','Tứ','Ngũ','Thượng'];
+var HX=[
+{id:1,n:'Thuần Càn',c:'乾',u:'111',l:'111',m:'Trời, sức sáng tạo, khí dương mạnh. Nên chính trực, bền chí, tự cường nhưng tránh kiêu mãn.'},
+{id:2,n:'Thuần Khôn',c:'坤',u:'000',l:'000',m:'Đất, nhu thuận, bao dung. Việc nên theo đạo mềm, biết nâng đỡ, tích lũy và chờ thời.'},
+{id:3,n:'Thủy Lôi Truân',c:'屯',u:'010',l:'100',m:'Khó khăn lúc ban đầu. Có mầm phát triển nhưng cần người dẫn đường, không nên nóng vội.'},
+{id:4,n:'Sơn Thủy Mông',c:'蒙',u:'001',l:'010',m:'Mông muội cần khai sáng. Hỏi học, hỏi đường, hỏi người có kinh nghiệm thì dễ mở nút.'},
+{id:5,n:'Thủy Thiên Nhu',c:'需',u:'010',l:'111',m:'Chờ đợi và nuôi sức. Chưa phải lúc ép việc, giữ lòng tin và chuẩn bị nền vững.'},
+{id:6,n:'Thiên Thủy Tụng',c:'訟',u:'111',l:'010',m:'Tranh tụng, bất đồng. Nên giảm đối đầu, xét lại lý lẽ và tìm chỗ hòa trước khi căng.'},
+{id:7,n:'Địa Thủy Sư',c:'師',u:'000',l:'010',m:'Đội ngũ, kỷ luật, tổ chức. Việc thành nhờ người đúng vai và phép tắc rõ ràng.'},
+{id:8,n:'Thủy Địa Tỷ',c:'比',u:'010',l:'000',m:'Thân gần, kết liên. Chọn đúng người để dựa và cùng đi, tránh kết nhóm vì sợ cô đơn.'},
+{id:9,n:'Phong Thiên Tiểu Súc',c:'小畜',u:'011',l:'111',m:'Tích lũy nhỏ, giữ lại để dưỡng lớn. Thành quả chưa nhiều nhưng có thể bền nếu biết tiết chế.'},
+{id:10,n:'Thiên Trạch Lý',c:'履',u:'111',l:'110',m:'Đi trên lễ, cẩn trọng từng bước. Gần chỗ nguy mà giữ đúng mực thì không lỗi.'},
+{id:11,n:'Địa Thiên Thái',c:'泰',u:'000',l:'111',m:'Thông thái, hanh thông, trên dưới giao hòa. Việc đang mở nhưng vẫn cần khiêm tốn.'},
+{id:12,n:'Thiên Địa Bĩ',c:'否',u:'111',l:'000',m:'Bế tắc, trên dưới không thông. Nên thủ chính, thu mình, tránh cố mở cửa sai lúc.'},
+{id:13,n:'Thiên Hỏa Đồng Nhân',c:'同人',u:'111',l:'101',m:'Đồng lòng với người. Việc sáng khi công khai, ngay thẳng và tìm được cộng sự cùng chí hướng.'},
+{id:14,n:'Hỏa Thiên Đại Hữu',c:'大有',u:'101',l:'111',m:'Có lớn, sáng ở trên trời. Tài lực tốt nhưng cần dùng đúng đạo để không hao phúc.'},
+{id:15,n:'Địa Sơn Khiêm',c:'謙',u:'000',l:'001',m:'Khiêm nhường. Càng biết hạ mình đúng chỗ càng được nâng, việc bền nhờ đức hơn nhờ thế.'},
+{id:16,n:'Lôi Địa Dự',c:'豫',u:'100',l:'000',m:'Vui thuận, dự bị. Có khí khởi động, nên chuẩn bị kỹ để niềm vui không thành phóng túng.'},
+{id:17,n:'Trạch Lôi Tùy',c:'隨',u:'110',l:'100',m:'Tùy thời, tùy người. Biết theo điều đúng thì thông, theo cảm xúc nhất thời thì lạc.'},
+{id:18,n:'Sơn Phong Cổ',c:'蠱',u:'001',l:'011',m:'Sửa cái cũ hư. Việc cần chỉnh từ gốc, xử lý tồn đọng trước khi mong đổi mới.'},
+{id:19,n:'Địa Trạch Lâm',c:'臨',u:'000',l:'110',m:'Tiến gần, mở rộng ảnh hưởng. Thời đang đến, cần chính tâm và giữ trách nhiệm.'},
+{id:20,n:'Phong Địa Quán',c:'觀',u:'011',l:'000',m:'Quan sát, soi xét. Chưa vội hành động, nhìn toàn cảnh sẽ thấy hướng đúng.'},
+{id:21,n:'Hỏa Lôi Phệ Hạp',c:'噬嗑',u:'101',l:'100',m:'Cắn hợp, xử lý vật cản. Có việc phải nói rõ, cắt dứt, lập quy tắc.'},
+{id:22,n:'Sơn Hỏa Bí',c:'賁',u:'001',l:'101',m:'Vẻ đẹp, trang sức. Tốt cho chỉnh hình thức, danh tiếng, nhưng không nên lấy bề ngoài thay thực chất.'},
+{id:23,n:'Sơn Địa Bác',c:'剝',u:'001',l:'000',m:'Bóc mòn, suy giảm. Nên giữ gốc, bớt hao, không cố mở rộng khi nền đang yếu.'},
+{id:24,n:'Địa Lôi Phục',c:'復',u:'000',l:'100',m:'Quay về, phục hồi. Sau suy có mầm trở lại, nên bắt đầu nhỏ và đều.'},
+{id:25,n:'Thiên Lôi Vô Vọng',c:'無妄',u:'111',l:'100',m:'Không vọng động. Giữ lòng thật, tránh tính toán lệch đạo hoặc ham kết quả nhanh.'},
+{id:26,n:'Sơn Thiên Đại Súc',c:'大畜',u:'001',l:'111',m:'Tích chứa lớn. Có sức nhưng cần giữ lại, học sâu, chuẩn bị trước khi phát.'},
+{id:27,n:'Sơn Lôi Di',c:'頤',u:'001',l:'100',m:'Nuôi dưỡng, lời nói, miệng ăn. Chọn điều nuôi thân tâm, tránh lời và thói quen làm hao khí.'},
+{id:28,n:'Trạch Phong Đại Quá',c:'大過',u:'110',l:'011',m:'Quá tải, vượt mức. Việc lớn có thể qua nhưng cần chống đỡ, bỏ bớt phần không cần.'},
+{id:29,n:'Thuần Khảm',c:'坎',u:'010',l:'010',m:'Nước sâu, hiểm lặp lại. Qua được bằng thành thật, kỷ luật và không hoảng.'},
+{id:30,n:'Thuần Ly',c:'離',u:'101',l:'101',m:'Lửa, sáng, bám vào điều đúng. Cần minh bạch, học hỏi và giữ nguồn năng lượng ổn định.'},
+{id:31,n:'Trạch Sơn Hàm',c:'咸',u:'110',l:'001',m:'Cảm ứng, rung động. Duyên đến qua sự chân thành, nhưng cần phân biệt cảm xúc và cam kết.'},
+{id:32,n:'Lôi Phong Hằng',c:'恆',u:'100',l:'011',m:'Bền lâu. Việc tốt khi giữ nhịp ổn định, đừng đổi hướng chỉ vì cảm giác nhất thời.'},
+{id:33,n:'Thiên Sơn Độn',c:'遯',u:'111',l:'001',m:'Rút lui đúng lúc. Lùi không phải thua, mà để giữ thân, giữ thế và chờ dịp khác.'},
+{id:34,n:'Lôi Thiên Đại Tráng',c:'大壯',u:'100',l:'111',m:'Sức mạnh lớn. Có lực tiến nhưng phải chính đáng, nếu cậy mạnh dễ sinh lỗi.'},
+{id:35,n:'Hỏa Địa Tấn',c:'晉',u:'101',l:'000',m:'Tiến lên, được soi sáng. Tốt cho công danh, học tập, trình bày, nhưng cần giữ lễ.'},
+{id:36,n:'Địa Hỏa Minh Di',c:'明夷',u:'000',l:'101',m:'Ánh sáng bị che. Nên giấu bớt tài, giữ nội lực, qua thời tối rồi mới lộ sáng.'},
+{id:37,n:'Phong Hỏa Gia Nhân',c:'家人',u:'011',l:'101',m:'Gia đạo, nề nếp. Việc thành nhờ vai trò rõ, lời nói ấm và kỷ luật trong nhà/nhóm.'},
+{id:38,n:'Hỏa Trạch Khuê',c:'睽',u:'101',l:'110',m:'Khác biệt, đối hướng. Chưa hợp lớn, nên tìm điểm chung nhỏ trước.'},
+{id:39,n:'Thủy Sơn Kiển',c:'蹇',u:'010',l:'001',m:'Gian nan, đi khó. Nên tìm trợ lực và đổi đường, không nên cố xông thẳng.'},
+{id:40,n:'Lôi Thủy Giải',c:'解',u:'100',l:'010',m:'Giải mở, tháo gỡ. Việc căng bắt đầu có đường ra, nên xử lý nhanh phần tồn.'},
+{id:41,n:'Sơn Trạch Tổn',c:'損',u:'001',l:'110',m:'Giảm bớt để được lợi. Bỏ phần thừa, hạ kỳ vọng, giữ phần cốt lõi.'},
+{id:42,n:'Phong Lôi Ích',c:'益',u:'011',l:'100',m:'Tăng ích, được thêm. Tốt khi chia sẻ, hành động đúng lúc và dùng lợi để nuôi việc lớn.'},
+{id:43,n:'Trạch Thiên Quải',c:'夬',u:'110',l:'111',m:'Quyết đoán, dứt khoát. Cần công khai, ngay thẳng, không dùng nóng giận để cắt.'},
+{id:44,n:'Thiên Phong Cấu',c:'姤',u:'111',l:'011',m:'Gặp gỡ bất ngờ. Có duyên đến nhanh, phải xét kỹ vì đẹp lúc đầu chưa chắc bền.'},
+{id:45,n:'Trạch Địa Tụy',c:'萃',u:'110',l:'000',m:'Tụ hội, gom người/gom lực. Việc cần trung tâm rõ và người dẫn đáng tin.'},
+{id:46,n:'Địa Phong Thăng',c:'升',u:'000',l:'011',m:'Đi lên từng bậc. Tốt cho học hành, sự nghiệp, tích lũy, không hợp đường tắt.'},
+{id:47,n:'Trạch Thủy Khốn',c:'困',u:'110',l:'010',m:'Khốn khó, bị ép. Giữ phẩm chất, bớt lời than, tìm nguồn lực thực tế.'},
+{id:48,n:'Thủy Phong Tỉnh',c:'井',u:'010',l:'011',m:'Cái giếng, nguồn nuôi. Sửa hệ thống, chăm nền tảng, dùng cái sẵn có cho đúng.'},
+{id:49,n:'Trạch Hỏa Cách',c:'革',u:'110',l:'101',m:'Cải cách, đổi da. Đổi khi đã đủ thời và đủ lý, không đổi chỉ vì chán.'},
+{id:50,n:'Hỏa Phong Đỉnh',c:'鼎',u:'101',l:'011',m:'Cái đỉnh, nuôi dưỡng lớn. Tốt cho xây hệ mới, nâng chất, chuyển thô thành tinh.'},
+{id:51,n:'Thuần Chấn',c:'震',u:'100',l:'100',m:'Sấm động, thức tỉnh. Có biến động làm giật mình nhưng cũng mở khí hành động.'},
+{id:52,n:'Thuần Cấn',c:'艮',u:'001',l:'001',m:'Dừng lại, giữ lưng. Biết dừng đúng chỗ thì an, cố tiến sẽ mệt.'},
+{id:53,n:'Phong Sơn Tiệm',c:'漸',u:'011',l:'001',m:'Tiến dần. Việc tốt theo lộ trình, từng bước có trật tự sẽ bền.'},
+{id:54,n:'Lôi Trạch Quy Muội',c:'歸妹',u:'100',l:'110',m:'Duyên chưa chính vị. Hấp dẫn nhưng dễ lệch vai, cần rõ danh phận và kỳ vọng.'},
+{id:55,n:'Lôi Hỏa Phong',c:'豐',u:'100',l:'101',m:'Phong thịnh, rực sáng. Đang mạnh nhưng phải lo lúc sau, tránh tiêu hết ánh sáng một lần.'},
+{id:56,n:'Hỏa Sơn Lữ',c:'旅',u:'101',l:'001',m:'Lữ khách, tạm trú. Không nên bám chấp, giữ lễ và linh hoạt khi ở thế chưa ổn định.'},
+{id:57,n:'Thuần Tốn',c:'巽',u:'011',l:'011',m:'Gió, thấm dần. Tốt cho mềm mỏng, thuyết phục, đi vào từng chi tiết.'},
+{id:58,n:'Thuần Đoài',c:'兌',u:'110',l:'110',m:'Vui, nói, giao tiếp. Hanh thông nhờ hòa khí nhưng phải tránh vui quá hóa lỏng.'},
+{id:59,n:'Phong Thủy Hoán',c:'渙',u:'011',l:'010',m:'Tan rã, giải tán bế khí. Cần gom lại lòng người và mục tiêu sau khi rối.'},
+{id:60,n:'Thủy Trạch Tiết',c:'節',u:'010',l:'110',m:'Tiết chế, giới hạn. Đặt khuôn đúng thì nhẹ, ép quá thì sinh nghẽn.'},
+{id:61,n:'Phong Trạch Trung Phu',c:'中孚',u:'011',l:'110',m:'Lòng thành ở giữa. Thành tín là chìa khóa, nói thật và làm đúng sẽ cảm thông.'},
+{id:62,n:'Lôi Sơn Tiểu Quá',c:'小過',u:'100',l:'001',m:'Quá nhỏ, cẩn thận việc nhỏ. Nên hạ thấp, làm kỹ, chưa hợp mưu việc lớn.'},
+{id:63,n:'Thủy Hỏa Ký Tế',c:'既濟',u:'010',l:'101',m:'Đã xong, đã qua sông. Thành rồi càng phải giữ, sơ suất nhỏ có thể đảo lại.'},
+{id:64,n:'Hỏa Thủy Vị Tế',c:'未濟',u:'101',l:'010',m:'Chưa xong, còn dang dở. Cơ hội vẫn mở nhưng cần sắp đúng thứ tự trước khi kết.'}
+];
+HX.forEach(function(h){
+  h.h=[
+    'Sơ hào: việc mới phát, nên giữ nền và tránh hấp tấp.',
+    'Nhị hào: đã có chỗ đứng, nên đi bằng chính đạo và tìm người hợp.',
+    'Tam hào: giữa đường dễ va vấp, cần xét lại cách làm.',
+    'Tứ hào: đã gần ngoại cảnh, nên biết tiến lui và giữ lễ.',
+    'Ngũ hào: vị trung chính, nếu sáng suốt thì dễ được trợ lực.',
+    'Thượng hào: việc đến cực điểm, nên phòng quá đà và chuẩn bị chuyển thế.'
+  ];
+});
+window.TT=TT;
+window.TN=TN;
+window.HN=HN;
+window.HX=HX;
