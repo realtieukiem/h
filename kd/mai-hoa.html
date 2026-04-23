@@ -573,7 +573,15 @@ function downloadMaiImage(){
   if(!target || !window.html2canvas) return;
   var clone=target.cloneNode(true);
   var actions=clone.querySelector('.export-actions');
-  if(actions) actions.remove();
+  if(actions){
+    var node=actions.nextSibling;
+    while(node){
+      var next=node.nextSibling;
+      node.parentNode.removeChild(node);
+      node=next;
+    }
+    actions.remove();
+  }
   clone.style.position='absolute';
   clone.style.left='-100000px';
   clone.style.top='0';

@@ -96,6 +96,7 @@ p{color:var(--muted);line-height:1.72;font-size:15px}
 .yao-row.active .mini-line{background:#ff6b77;color:#19090b}
 .mini-line{height:10px;border-radius:999px;background:linear-gradient(180deg,#fbe5a4,#d9a844);position:relative}
 .mini-line.broken{background:none;display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.yao-row.active .mini-line.broken{background:none}
 .mini-line.broken:before,.mini-line.broken:after{content:'';height:10px;border-radius:999px;background:linear-gradient(180deg,#fbe5a4,#d9a844)}
 .yao-row.active .mini-line.broken:before,.yao-row.active .mini-line.broken:after{background:#ff6b77}
 .tag-red{color:#ff9ea7;font-weight:700}
