@@ -3,7 +3,7 @@ const keywordInput = document.getElementById("keywordInput");
 const result = document.getElementById("result");
 
 // Sau khi deploy Vercel xong, thay URL này bằng URL thật của bạn
-const API_BASE_URL = "https://your-vercel-api.vercel.app";
+const API_BASE_URL = "https://page-api-rtk.vercel.app";
 
 callApiBtn.addEventListener("click", async () => {
   const keyword = keywordInput.value.trim();
