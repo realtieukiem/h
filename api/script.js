@@ -2,11 +2,16 @@ const callApiBtn = document.getElementById("callApiBtn");
 const keywordInput = document.getElementById("keywordInput");
 const result = document.getElementById("result");
 
-// Thay link này bằng link Vercel API thật của bạn
-const API_BASE_URL = "https://page-api-rtk.vercel.app";
+// Thay bằng URL Vercel API thật của bạn
+const API_BASE_URL = "https://page-api.vercel.app";
 
 callApiBtn.addEventListener("click", async () => {
   const keyword = keywordInput.value.trim();
+
+  if (!keyword) {
+    result.textContent = "";
+    return;
+  }
 
   result.textContent = "Đang gọi API...";
 
@@ -17,22 +22,13 @@ callApiBtn.addEventListener("click", async () => {
 
     const data = await response.json();
 
-    if (!response.ok) {
-      throw new Error(data.error || "Gọi API thất bại");
+    if (data.success) {
+      result.textContent = data.result;
+    } else {
+      result.textContent = "wrong";
     }
-
-    result.textContent = JSON.stringify(data, null, 2);
   } catch (error) {
     console.error(error);
-
-    result.textContent = JSON.stringify(
-      {
-        success: false,
-        message: "Lỗi khi gọi API",
-        error: error.message
-      },
-      null,
-      2
-    );
+    result.textContent = "wrong";
   }
 });
