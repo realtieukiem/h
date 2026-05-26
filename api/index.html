@@ -2,18 +2,36 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <title>GitHub Pages Call Vercel API</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Test Private API</title>
+
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Demo gọi API qua Vercel</h1>
+    <h1>Test Private API</h1>
 
-    <input id="keywordInput" placeholder="Nhập keyword..." value="hello" />
+    <p>
+      Nhập <b>google</b> thì API trả về <b>google.com</b>.
+      Nhập giá trị khác thì trả về <b>wrong</b>.
+    </p>
 
-    <button id="callApiBtn">
+    <div class="form-group">
+      <label for="keywordInput">Keyword</label>
+      <input
+        id="keywordInput"
+        type="text"
+        value="google"
+        placeholder="Nhập keyword, ví dụ: google"
+      />
+    </div>
+
+    <button id="callApiBtn" type="button">
       Gọi API
     </button>
+
+    <h2>Kết quả</h2>
 
     <pre id="result">Chưa có dữ liệu</pre>
   </div>
