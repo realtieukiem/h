@@ -2,7 +2,7 @@ const callApiBtn = document.getElementById("callApiBtn");
 const keywordInput = document.getElementById("keywordInput");
 const result = document.getElementById("result");
 
-// Sau khi deploy Vercel xong, thay URL này bằng URL thật của bạn
+// Thay link này bằng link Vercel API thật của bạn
 const API_BASE_URL = "https://page-api-rtk.vercel.app";
 
 callApiBtn.addEventListener("click", async () => {
@@ -18,7 +18,7 @@ callApiBtn.addEventListener("click", async () => {
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(data.error || "Request failed");
+      throw new Error(data.error || "Gọi API thất bại");
     }
 
     result.textContent = JSON.stringify(data, null, 2);
@@ -29,7 +29,7 @@ callApiBtn.addEventListener("click", async () => {
       {
         success: false,
         message: "Lỗi khi gọi API",
-        error: error.message,
+        error: error.message
       },
       null,
       2
