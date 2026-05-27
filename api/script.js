@@ -1,17 +1,21 @@
 const callApiBtn = document.getElementById("callApiBtn");
 const keywordInput = document.getElementById("keywordInput");
+const apiKeyInput = document.getElementById("apiKeyInput");
 const result = document.getElementById("result");
 
 const API_BASE_URL = "https://page-api-rtk.vercel.app";
 
-// Key này phải giống PRIVATE_CALL_KEY trong Vercel
-const PRIVATE_CALL_KEY = "KEY_2026_05_26";
-
 callApiBtn.addEventListener("click", async () => {
   const keyword = keywordInput.value.trim();
+  const apiKey = apiKeyInput.value.trim();
 
   if (!keyword) {
     result.textContent = "Vui lòng nhập keyword";
+    return;
+  }
+
+  if (!apiKey) {
+    result.textContent = "Vui lòng nhập API key";
     return;
   }
 
@@ -23,7 +27,7 @@ callApiBtn.addEventListener("click", async () => {
       {
         method: "GET",
         headers: {
-          "x-api-key": PRIVATE_CALL_KEY
+          "x-api-key": apiKey
         }
       }
     );
@@ -33,6 +37,7 @@ callApiBtn.addEventListener("click", async () => {
     result.textContent = JSON.stringify(data, null, 2);
   } catch (error) {
     console.error(error);
+
     result.textContent = JSON.stringify(
       {
         success: false,
