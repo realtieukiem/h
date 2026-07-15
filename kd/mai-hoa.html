@@ -517,7 +517,66 @@ function maiHoaReading(main,ho,changed,line,meta){
   return html;
 }
 function downloadToolbar(){
-  return '<div class="btn-row export-actions"><button class="btn" type="button" onclick="downloadMaiImage()">Tải ảnh quẻ</button></div>';
+  return '<div class="btn-row export-actions"><button class="btn" type="button" onclick="downloadMaiImage()">Tải ảnh quẻ</button><button class="btn" type="button" onclick="copyMaiText(this)">Copy text quẻ</button></div>';
+}
+function resultTextForCopy(){
+  var target=document.getElementById('maiResult');
+  if(!target) return '';
+  var clone=target.cloneNode(true);
+  var actions=clone.querySelector('.export-actions');
+  if(actions) actions.remove();
+  clone.querySelectorAll('.hvis').forEach(function(box){
+    var lines=Array.prototype.slice.call(box.querySelectorAll('.hl'));
+    var text=lines.map(function(line,idx){
+      var label='Hào '+(6-idx)+': '+(line.classList.contains('n')?'Âm':'Dương');
+      return line.classList.contains('a') ? label+' (động)' : label;
+    }).join('\n');
+    var replacement=document.createElement('div');
+    replacement.textContent=text;
+    box.parentNode.replaceChild(replacement,box);
+  });
+  clone.querySelectorAll('.mini-line').forEach(function(line){
+    line.textContent=line.classList.contains('broken')?'Âm':'Dương';
+  });
+  return clone.innerText
+    .replace(/\u00a0/g,' ')
+    .replace(/[ \t]+\n/g,'\n')
+    .replace(/\n{3,}/g,'\n\n')
+    .trim();
+}
+function fallbackCopyText(text){
+  var area=document.createElement('textarea');
+  area.value=text;
+  area.setAttribute('readonly','');
+  area.style.position='fixed';
+  area.style.left='-9999px';
+  area.style.top='0';
+  document.body.appendChild(area);
+  area.focus();
+  area.select();
+  var ok=false;
+  try{ok=document.execCommand('copy');}catch(e){ok=false;}
+  document.body.removeChild(area);
+  return ok;
+}
+function copyMaiText(button){
+  var text=resultTextForCopy();
+  if(!text) return;
+  var done=function(ok){
+    if(!button) return;
+    var old=button.textContent;
+    button.textContent=ok?'Đã copy':'Không copy được';
+    button.disabled=true;
+    setTimeout(function(){
+      button.textContent=old;
+      button.disabled=false;
+    },1600);
+  };
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(text).then(function(){done(true);}).catch(function(){done(fallbackCopyText(text));});
+  }else{
+    done(fallbackCopyText(text));
+  }
 }
 function buildMeta(pair){
   var day=canChiDay(pair.solar), month=canChiMonth(pair.lunar), hour=canChiHour(pair.hour,day.stem);
