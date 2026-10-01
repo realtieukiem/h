@@ -1,0 +1,51 @@
+name: Build and publish site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'portfolio/**'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-site
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: portfolio/package-lock.json
+
+      - name: Install dependencies
+        working-directory: portfolio
+        run: npm ci
+
+      - name: Type-check, build, prerender and copy the site to the repository root
+        working-directory: portfolio
+        run: npm run release
+
+      - name: Commit the published site
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A index.html 404.html .nojekyll favicon.svg about privacy-policy assets media
+          if git diff --cached --quiet; then
+            echo "The published site is already up to date."
+            exit 0
+          fi
+          git commit -m "Publish site build for ${GITHUB_SHA::7}"
+          git pull --rebase origin main
+          git push origin HEAD:main

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 440" width="480" height="440" fill="none">
+  <path d="M46 214C60 262 96 280 118 300l32-8 28 56 36-18 26 74 30-70 34 18 24-56 36 4c28-20 60-42 70-86z" fill="#5a43b5"/>
+  <path d="M46 214c14 48 50 66 72 86l32-8-22-56z" fill="#463193"/>
+  <path d="M150 292l28 56 36-18-18-62z" fill="#513ba6"/>
+  <path d="M214 330l26 74 30-70-26-58z" fill="#6c54cc"/>
+  <path d="M270 334l34 18 24-56-40-28z" fill="#5f48bd"/>
+  <path d="M328 296l36 4c28-20 60-42 70-86l-82 26z" fill="#7a64dc"/>
+  <ellipse cx="240" cy="222" rx="196" ry="58" fill="#1f8f72"/>
+  <ellipse cx="240" cy="208" rx="196" ry="58" fill="#45cc9b"/>
+  <ellipse cx="232" cy="200" rx="164" ry="42" fill="#66e0b0" opacity=".6"/>
+  <ellipse cx="240" cy="230" rx="64" ry="17" fill="#f6d28b"/>
+  <ellipse cx="240" cy="228" rx="50" ry="11" fill="#ffe3a8"/>
+  <path d="M92 204v-58h70v58z" fill="#f6ecdd"/>
+  <path d="M162 146l38-13v58l-38 13z" fill="#d6c4ac"/>
+  <path d="M84 150h86l38-13-12-26H98z" fill="#6a4fe0"/>
+  <path d="M84 150h86l-10-39H98z" fill="#8a6cff"/>
+  <rect x="176" y="86" width="16" height="30" rx="2" fill="#463193"/>
+  <rect x="173" y="82" width="22" height="8" rx="3" fill="#6c54cc"/>
+  <path d="M112 204v-30h30v30z" fill="#4a3599"/>
+  <path d="M112 174h30v6h-30z" fill="#ffc24b"/>
+  <g transform="translate(346 150)">
+    <circle r="33" stroke="#4fe3e0" stroke-width="15" stroke-dasharray="13 12.92"/>
+    <circle r="27" fill="#2bb5c2"/>
+    <circle r="27" stroke="#4fe3e0" stroke-width="5"/>
+    <circle r="10" fill="#15103a"/>
+  </g>
+  <g transform="translate(402 190)">
+    <circle r="17" stroke="#ffc24b" stroke-width="9" stroke-dasharray="8 7.26"/>
+    <circle r="14" fill="#e59c1c"/>
+    <circle r="5" fill="#15103a"/>
+  </g>
+  <path d="M60 206l22-8 22 8-22 8z" fill="#ffd98a"/>
+  <path d="M60 206l22 8v20l-22-8z" fill="#e59c1c"/>
+  <path d="M104 206l-22 8v20l22-8z" fill="#ffc24b"/>
+  <path d="M250 196h34l10 7h-22l-5 8h-12z" fill="#a9a4c8"/>
+  <path d="M250 196h34l10 7h-44z" fill="#d7d3ee"/>
+  <rect x="264" y="164" width="6" height="32" rx="3" fill="#8a5a3c" transform="rotate(24 267 180)"/>
+  <rect x="262" y="154" width="26" height="14" rx="3" fill="#d7d3ee" transform="rotate(24 275 161)"/>
+</svg>
