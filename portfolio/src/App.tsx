@@ -5,6 +5,7 @@ import { Navbar } from './components/Navbar';
 import type { SiteData } from './data/types';
 import { pageMeta } from './meta';
 import { About } from './pages/About';
+import { Extras } from './pages/Extras';
 import { Home } from './pages/Home';
 import { Privacy } from './pages/Privacy';
 import type { PageId } from './routes';
@@ -18,6 +19,7 @@ interface AppProps {
 const PAGES: Record<PageId, () => React.JSX.Element> = {
   home: Home,
   about: About,
+  extras: Extras,
   privacy: Privacy,
 };
 

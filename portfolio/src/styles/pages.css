@@ -45,6 +45,15 @@
   margin-top: 12px;
 }
 
+.page__head h1 {
+  margin: 6px 0 14px;
+  font-size: clamp(2rem, 1.4rem + 2.6vw, 3.2rem);
+}
+
+.page__head + .block {
+  margin-top: 56px;
+}
+
 .block {
   margin-top: 80px;
 }

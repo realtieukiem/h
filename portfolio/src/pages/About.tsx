@@ -1,5 +1,4 @@
 import { ContactLinks } from '../components/ContactLinks';
-import { ExternalLink } from '../components/ExternalLink';
 import { useGameDetails } from '../components/GameDetails';
 import { GameIcon } from '../components/GameIcon';
 import { Backdrop } from '../components/journey/Backdrop';
@@ -95,49 +94,6 @@ export function About() {
           {data.categories.map((category) => (
             <CategorySection key={category.id} category={category} />
           ))}
-        </section>
-
-        <section className="block" aria-labelledby="toolkits-title">
-          <h2 id="toolkits-title">{t.about.toolkitsTitle}</h2>
-          <p className="lead">{t.about.toolkitsLead}</p>
-          <ul className="kits">
-            {data.toolkits.map((kit) => (
-              <li key={kit.id} className="kit">
-                {kit.image && (
-                  <img
-                    src={asset(kit.image.src)}
-                    width={kit.image.width}
-                    height={kit.image.height}
-                    alt={tr(kit.image.alt)}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                )}
-                <div>
-                  <h3>{kit.title}</h3>
-                  <p>{tr(kit.description)}</p>
-                  <ExternalLink className="button button--small" href={kit.url}>
-                    {tr(kit.linkLabel)}
-                  </ExternalLink>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="block" aria-labelledby="side-title">
-          <h2 id="side-title">{t.about.sideTitle}</h2>
-          <ul className="sides">
-            {data.sideProjects.map((item) => (
-              <li key={item.id}>
-                <h3>{item.title}</h3>
-                <p>{tr(item.description)}</p>
-                <ExternalLink className="text-link" href={item.url}>
-                  {tr(item.linkLabel)}
-                </ExternalLink>
-              </li>
-            ))}
-          </ul>
         </section>
 
         <section id="contact" className="block block--contact" aria-labelledby="about-contact-title">

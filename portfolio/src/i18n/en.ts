@@ -2,6 +2,7 @@ export const en = {
   nav: {
     home: 'Home',
     about: 'About Me',
+    extras: 'Extras',
     privacy: 'Privacy Policy',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
@@ -15,6 +16,8 @@ export const en = {
     aboutTitle: 'About Me',
     aboutDescription:
       'Who I am, the skills and tools I work with, and the mobile games, web games and playable ads I have worked on.',
+    extrasTitle: 'Extras',
+    extrasDescription: 'Toolkits I share with other developers and the side projects I build next to my games.',
     privacyTitle: 'Privacy Policy',
     privacyDescription: 'Privacy Policy for Im Game Dev: what is collected, how it is used and how to get in touch.',
   },
@@ -76,11 +79,16 @@ export const en = {
     skillsTitle: 'Skills and tools',
     gamesTitle: 'Games I have worked on',
     gamesLead: 'Mobile games, web games and playable ads. Open any of them for the details.',
+    contactTitle: 'Get in touch',
+    jump: 'Jump to a game type',
+  },
+  extras: {
+    title: 'Toolkits and side projects',
+    lead: 'Things I build next to the games: packages other developers can use, and projects made for fun.',
     toolkitsTitle: 'Toolkits',
     toolkitsLead: 'Packages I share with other developers.',
     sideTitle: 'Other projects',
-    contactTitle: 'Get in touch',
-    jump: 'Jump to a game type',
+    sideLead: 'Side projects outside of game work.',
   },
   game: {
     category: 'Type',

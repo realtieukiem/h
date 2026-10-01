@@ -23,6 +23,9 @@ export function Footer() {
               <a href={href('about')}>{t.nav.about}</a>
             </li>
             <li>
+              <a href={href('extras')}>{t.nav.extras}</a>
+            </li>
+            <li>
               <a href={href('privacy')}>{t.nav.privacy}</a>
             </li>
           </ul>

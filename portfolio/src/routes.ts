@@ -1,8 +1,9 @@
-export type PageId = 'home' | 'about' | 'privacy';
+export type PageId = 'home' | 'about' | 'extras' | 'privacy';
 
 export const PAGE_PATHS: Record<PageId, string> = {
   home: '',
   about: 'about/',
+  extras: 'extras/',
   privacy: 'privacy-policy/',
 };
 
@@ -14,6 +15,7 @@ export const pageFromPathname = (pathname: string): PageId => {
   const segments = pathname.split('/').filter((part) => part && part !== 'index.html');
   const last = segments[segments.length - 1];
   if (last === 'about') return 'about';
+  if (last === 'extras') return 'extras';
   if (last === 'privacy-policy') return 'privacy';
   return 'home';
 };

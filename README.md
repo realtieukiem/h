@@ -1,6 +1,7 @@
 # I'm Game Dev — portfolio site
 
-A game-styled personal portfolio: a scroll-driven Home journey, an About Me page and a Privacy Policy.
+A game-styled personal portfolio: a scroll-driven Home journey, an About Me page, an Extras page
+(toolkits and side projects) and a Privacy Policy.
 Built with React, TypeScript and Vite, prerendered to plain static files and served by GitHub Pages.
 
 - Live (GitHub Pages): https://realtieukiem.github.io/h/
@@ -11,7 +12,7 @@ Built with React, TypeScript and Vite, prerendered to plain static files and ser
 | Path | What it is |
 | --- | --- |
 | `portfolio/` | The source project. **Edit here.** |
-| `index.html`, `about/`, `privacy-policy/`, `404.html`, `assets/`, `media/`, `favicon.svg`, `.nojekyll` | The **built** site. Generated — do not edit by hand, changes are overwritten. |
+| `index.html`, `about/`, `extras/`, `privacy-policy/`, `404.html`, `assets/`, `media/`, `favicon.svg`, `.nojekyll` | The **built** site. Generated — do not edit by hand, changes are overwritten. |
 | `.github/workflows/deploy.yml` | Rebuilds the site and commits the result to the repository root on every push to `main` that touches `portfolio/`. |
 | `api/`, `kd/`, `nuoitoi/`, `vlt/` | Older standalone pages. The portfolio build never touches them. |
 
@@ -52,7 +53,7 @@ Everything you are likely to change is in `portfolio/src/config/`:
 | `site.ts` | Brand, name, role, headline, intro, direction, avatar, email, phone, social links, `siteUrl`. |
 | `games.ts` | Game categories and every game. |
 | `skills.ts` | The skills shown in the workshop and on About Me. |
-| `extras.ts` | Toolkits and side projects on About Me. |
+| `extras.ts` | Toolkits and side projects on the Extras page. |
 | `privacy.ts` | The Privacy Policy text, effective date and contact. |
 
 Interface wording (buttons, headings, labels) is in `portfolio/src/i18n/en.ts`.

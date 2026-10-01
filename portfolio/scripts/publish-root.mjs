@@ -6,7 +6,7 @@ const project = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = resolve(project, 'dist');
 const target = resolve(project, '..');
 
-const MANAGED = ['index.html', '404.html', '.nojekyll', 'favicon.svg', 'about', 'privacy-policy', 'assets', 'media'];
+const MANAGED = ['index.html', '404.html', '.nojekyll', 'favicon.svg', 'about', 'extras', 'privacy-policy', 'assets', 'media'];
 
 await stat(resolve(dist, 'index.html')).catch(() => {
   throw new Error('dist/index.html is missing. Run "npm run build" first.');

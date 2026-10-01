@@ -18,6 +18,7 @@ export function Navbar() {
   const items: { id: PageId; label: string }[] = [
     { id: 'home', label: t.nav.home },
     { id: 'about', label: t.nav.about },
+    { id: 'extras', label: t.nav.extras },
     { id: 'privacy', label: t.nav.privacy },
   ];
 
