@@ -63,10 +63,10 @@ export const en = {
   },
   contact: {
     kicker: 'Area 4 · Contact Checkpoint',
-    title: 'Let us make something playable',
+    title: 'Got a game? Let us take it to the world.',
     email: 'Email',
     phone: 'Phone',
-    emailMe: 'Email me',
+    emailMe: 'Send me your game',
   },
   mascot: {
     label: 'Mascot. Activate for a small surprise.',
@@ -84,7 +84,7 @@ export const en = {
     skillsTitle: 'Skills and tools',
     gamesTitle: 'Games I have worked on',
     gamesLead: 'Mobile games, web games and playable ads. Open any of them for the details.',
-    contactTitle: 'Get in touch',
+    contactTitle: 'Partner with me',
     jump: 'Jump to a game type',
   },
   extras: {

@@ -66,10 +66,10 @@ export const vi: Strings = {
   },
   contact: {
     kicker: 'Khu 4 · Trạm Liên hệ',
-    title: 'Cùng làm một thứ chơi được',
+    title: 'Bạn có game? Cùng đưa nó ra thế giới.',
     email: 'Email',
     phone: 'Điện thoại',
-    emailMe: 'Gửi email cho tôi',
+    emailMe: 'Gửi game cho tôi',
   },
   mascot: {
     label: 'Linh vật. Bấm để có một bất ngờ nhỏ.',
@@ -87,7 +87,7 @@ export const vi: Strings = {
     skillsTitle: 'Kỹ năng và công cụ',
     gamesTitle: 'Những game tôi đã tham gia',
     gamesLead: 'Game mobile, game web và playable ads. Mở từng game để xem chi tiết.',
-    contactTitle: 'Liên hệ',
+    contactTitle: 'Hợp tác cùng tôi',
     jump: 'Đi tới loại game',
   },
   extras: {

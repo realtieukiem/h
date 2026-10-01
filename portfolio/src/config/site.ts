@@ -8,8 +8,8 @@ export const site: SiteConfig = {
     name: 'IGD',
     role: { en: 'Game Developer', vi: 'Nhà phát triển game' },
     headline: {
-      en: 'I make mobile games, web games and playable ads.',
-      vi: 'Tôi làm game mobile, game web và playable ads.',
+      en: 'I play games, make games and publish games.',
+      vi: 'Tôi chơi game, làm game và phát hành game.',
     },
     intro: [
       {
@@ -45,8 +45,8 @@ export const site: SiteConfig = {
 
   contact: {
     invitation: {
-      en: 'Have a game, a playable ad or a prototype in mind? Send a message and let us talk about it.',
-      vi: 'Bạn đang có ý tưởng về một game, một playable ad hay một bản prototype? Hãy nhắn cho tôi để cùng trao đổi.',
+      en: 'I am looking for partners: solo developers, small teams and studios with a game they believe in. You bring the game. I take care of publishing, from polish and playable ads to launch and growth, so that your work reaches players all over the world.',
+      vi: 'Tôi đang tìm đối tác: các nhà phát triển độc lập, các nhóm nhỏ và studio đang có một tựa game mình tin tưởng. Bạn mang game đến. Tôi lo phần phát hành, từ hoàn thiện sản phẩm, làm playable ads cho đến ra mắt và tăng trưởng, để sản phẩm của bạn đến với người chơi trên khắp thế giới.',
     },
     email: 'realtieukiem@gmail.com',
     phone: '+84971054793',
