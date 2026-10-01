@@ -38,8 +38,12 @@ export const sideProjects: ExtraLink[] = [
   {
     id: 'kinh-dich',
     title: 'Kinh Dịch',
-    description: { en: 'A side project hosted on GitHub Pages.', vi: 'Dự án phụ chạy trên GitHub Pages.' },
-    url: 'https://realtieukiem.github.io/h/kd/',
+    description: {
+      en: 'An I Ching reference and divination tool, in Vietnamese.',
+      vi: 'Công cụ tra cứu và gieo quẻ Kinh Dịch.',
+    },
+    url: 'kd/',
+    internal: true,
     linkLabel: { en: 'Open Kinh Dịch', vi: 'Mở Kinh Dịch' },
   },
   {

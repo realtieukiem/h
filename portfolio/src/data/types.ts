@@ -91,6 +91,7 @@ export interface ExtraLink {
   description: Localized;
   url: string;
   linkLabel: Localized;
+  internal?: boolean;
   image?: ImageAsset;
 }
 

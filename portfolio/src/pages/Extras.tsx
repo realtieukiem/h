@@ -51,9 +51,15 @@ export function Extras() {
               <li key={item.id}>
                 <h3>{item.title}</h3>
                 <p>{tr(item.description)}</p>
-                <ExternalLink className="text-link" href={item.url}>
-                  {tr(item.linkLabel)}
-                </ExternalLink>
+                {item.internal ? (
+                  <a className="text-link" href={asset(item.url)}>
+                    {tr(item.linkLabel)}
+                  </a>
+                ) : (
+                  <ExternalLink className="text-link" href={item.url}>
+                    {tr(item.linkLabel)}
+                  </ExternalLink>
+                )}
               </li>
             ))}
           </ul>

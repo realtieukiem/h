@@ -13,7 +13,7 @@ Built with React, TypeScript and Vite, prerendered to plain static files and ser
 | `portfolio/` | The source project. **Edit here.** |
 | `index.html`, `about/`, `extras/`, `privacy-policy/`, `vi/`, `404.html`, `assets/`, `media/`, `favicon.svg`, `.nojekyll` | The **built** site. Generated — do not edit by hand, changes are overwritten. |
 | `.github/workflows/deploy.yml` | Rebuilds the site and commits the result to the repository root on every push to `main` that touches `portfolio/`. |
-| `api/`, `kd/`, `nuoitoi/`, `vlt/` | Older standalone pages. The portfolio build never touches them. |
+| `kd/` | The Kinh Dịch pages, linked from the Extras page. The portfolio build never touches them. |
 
 GitHub Pages serves the `main` branch root, so whatever sits in the root is what visitors get. Every URL in
 the built site is relative, so the same files work under `https://realtieukiem.github.io/h/` and at the root
@@ -162,8 +162,10 @@ exactly as they are — only the two records below need to change.
 
 Good to know:
 
-- The custom domain applies to the whole repository, so `kd/`, `vlt/` and the other folders move with it
+- The custom domain applies to the whole repository, so `kd/` moves with it
   (`https://www.imgamedev.com/kd/`). The old `realtieukiem.github.io/h/...` addresses redirect automatically.
+- The older `api/`, `nuoitoi/` and `vlt/` pages were taken off `main` on 2026-10-01. They are kept on the
+  `old` branch, which holds the repository as it was before the portfolio.
 - Old Google Sites addresses (`/home`, `/game`, `/game/gamemobile`, `/package`, `/other`, `/contact`) are
   forwarded to the matching place on the new site by `404.html`. `/privacy-policy` keeps its address.
 - Verifying the domain under your GitHub account (**Settings → Pages → Verified domains**) stops anyone else
