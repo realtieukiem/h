@@ -171,6 +171,30 @@ Good to know:
 - Verifying the domain under your GitHub account (**Settings → Pages → Verified domains**) stops anyone else
   from claiming it.
 
+## Search engines
+
+The build writes everything a search engine reads, from `siteUrl` in `portfolio/src/config/site.ts`:
+
+- `robots.txt` and `sitemap.xml` at the site root. The sitemap lists every page in both languages, plus the
+  paths in `sitemapExtra` (the `kd/` pages). Add a path there when you add a page outside `portfolio/`.
+- Per page: title, description, canonical address, `hreflang` links between the English and Vietnamese
+  versions, Open Graph and Twitter card tags, and a `Person` / `WebSite` block of structured data.
+- Page titles and descriptions are the `meta` entries in `portfolio/src/i18n/en.ts` and `vi.ts`. Keep a
+  description under about 160 characters.
+- The picture shown when a link is shared is `portfolio/public/media/social-card.png` (1200 × 630). Replace
+  the file to change it; keep the size.
+
+What the build cannot do, done once by hand:
+
+1. Open <https://search.google.com/search-console>, add the property `imgamedev.com` (type **Domain**) and
+   verify it with the TXT or CNAME record it gives you, at the DNS provider.
+2. **Sitemaps** → submit `https://www.imgamedev.com/sitemap.xml`.
+3. **URL inspection** → paste `https://www.imgamedev.com/` → **Request indexing**. Repeat for `/vi/` and
+   `/about/`.
+
+No analytics script is added by any of this. Search Console reads Google's own data, not the visitor's
+browser.
+
 ## Content written for you — please check
 
 Nothing on the site is a placeholder any more. These parts were written on your behalf from what the

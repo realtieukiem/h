@@ -11,6 +11,10 @@ const escapeHtml = (value) =>
   value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 let brand = '';
+let siteUrl = '';
+let sitemapExtra = [];
+const sitemapEntries = [];
+const OG_LOCALES = { en: 'en_US', vi: 'vi_VN' };
 
 for (const locale of server.LOCALES) {
   for (const page of server.PAGE_IDS) {
@@ -19,11 +23,29 @@ for (const locale of server.LOCALES) {
     const prefix = server.rootPrefix(page, locale);
     const result = await server.render(route);
     brand = result.brand;
+    siteUrl = result.siteUrl;
+    sitemapExtra = result.sitemapExtra;
 
-    const alternates = result.siteUrl
-      ? server.LOCALES.map(
-          (code) => `<link rel="alternate" hreflang="${code}" href="${result.siteUrl}/${server.routePath(page, code)}" />`,
-        )
+    const alternateUrls = server.LOCALES.map((code) => [code, `${siteUrl}/${server.routePath(page, code)}`]);
+    alternateUrls.push(['x-default', `${siteUrl}/${server.routePath(page, server.LOCALES[0])}`]);
+    const alternates = siteUrl
+      ? alternateUrls.map(([code, url]) => `<link rel="alternate" hreflang="${code}" href="${url}" />`)
+      : [];
+    if (siteUrl) sitemapEntries.push({ url: `${siteUrl}/${path}`, alternateUrls });
+
+    const image = siteUrl ? `${siteUrl}/${result.socialImage.src}` : '';
+    const social = image
+      ? [
+          `<meta property="og:image" content="${image}" />`,
+          `<meta property="og:image:width" content="${result.socialImage.width}" />`,
+          `<meta property="og:image:height" content="${result.socialImage.height}" />`,
+          `<meta property="og:image:alt" content="${escapeHtml(result.socialImage.alt.en)}" />`,
+          `<meta name="twitter:card" content="summary_large_image" />`,
+          `<meta name="twitter:image" content="${image}" />`,
+        ]
+      : [];
+    const structured = result.structuredData
+      ? [`<script type="application/ld+json">${JSON.stringify(result.structuredData).replace(/</g, '\\u003c')}</script>`]
       : [];
 
     const head = [
@@ -32,9 +54,13 @@ for (const locale of server.LOCALES) {
       `<meta property="og:title" content="${escapeHtml(result.meta.title)}" />`,
       `<meta property="og:description" content="${escapeHtml(result.meta.description)}" />`,
       `<meta property="og:type" content="website" />`,
+      `<meta property="og:site_name" content="${escapeHtml(brand)}" />`,
+      `<meta property="og:locale" content="${OG_LOCALES[locale] ?? locale}" />`,
       result.meta.canonical ? `<link rel="canonical" href="${escapeHtml(result.meta.canonical)}" />` : '',
       result.meta.canonical ? `<meta property="og:url" content="${escapeHtml(result.meta.canonical)}" />` : '',
       ...alternates,
+      ...social,
+      ...structured,
     ]
       .filter(Boolean)
       .join('\n    ');
@@ -99,5 +125,19 @@ const notFound = `<!doctype html>
 
 await writeFile(resolve(dist, '404.html'), notFound);
 await writeFile(resolve(dist, '.nojekyll'), '');
+
+if (siteUrl) {
+  const pages = sitemapEntries.map(
+    ({ url, alternateUrls }) =>
+      `  <url>\n    <loc>${url}</loc>\n${alternateUrls
+        .map(([code, href]) => `    <xhtml:link rel="alternate" hreflang="${code}" href="${href}" />`)
+        .join('\n')}\n  </url>`,
+  );
+  const extras = sitemapExtra.map((path) => `  <url>\n    <loc>${siteUrl}/${path}</loc>\n  </url>`);
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${[...pages, ...extras].join('\n')}\n</urlset>\n`;
+  await writeFile(resolve(dist, 'sitemap.xml'), sitemap);
+  await writeFile(resolve(dist, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`);
+  console.log(`wrote sitemap.xml (${pages.length + extras.length} URLs) and robots.txt`);
+}
 await rm(resolve(root, 'dist-ssr'), { recursive: true, force: true });
 console.log('wrote 404.html and .nojekyll');

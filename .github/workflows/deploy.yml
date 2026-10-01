@@ -41,7 +41,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A index.html 404.html .nojekyll favicon.svg about extras privacy-policy vi assets media
+          git add -A index.html 404.html .nojekyll favicon.svg sitemap.xml robots.txt about extras privacy-policy vi assets media
           if git diff --cached --quiet; then
             echo "The published site is already up to date."
             exit 0

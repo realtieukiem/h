@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.imgamedev.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.imgamedev.com/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.imgamedev.com/vi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.imgamedev.com/" />
+  </url>
+  <url>
+    <loc>https://www.imgamedev.com/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.imgamedev.com/about/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.imgamedev.com/vi/about/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.imgamedev.com/about/" />
+  </url>
+  <url>
+    <loc>https://www.imgamedev.com/extras/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.imgamedev.com/extras/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.imgamedev.com/vi/extras/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.imgamedev.com/extras/" />
+  </url>
+  <url>
+    <loc>https://www.imgamedev.com/privacy-policy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.imgamedev.com/privacy-policy/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.imgamedev.com/vi/privacy-policy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.imgamedev.com/privacy-policy/" />
+  </url>
+  <url>
+    <loc>https://www.imgamedev.com/vi/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.imgamedev.com/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.imgamedev.com/vi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.imgamedev.com/" />
+  </url>
+  <url>
+    <loc>https://www.imgamedev.com/vi/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.imgamedev.com/about/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.imgamedev.com/vi/about/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.imgamedev.com/about/" />
+  </url>
+  <url>
+    <loc>https://www.imgamedev.com/vi/extras/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.imgamedev.com/extras/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.imgamedev.com/vi/extras/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.imgamedev.com/extras/" />
+  </url>
+  <url>
+    <loc>https://www.imgamedev.com/vi/privacy-policy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.imgamedev.com/privacy-policy/" />
+    <xhtml:link rel="alternate" hreflang="vi" href="https://www.imgamedev.com/vi/privacy-policy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.imgamedev.com/privacy-policy/" />
+  </url>
+  <url>
+    <loc>https://www.imgamedev.com/kd/</loc>
+  </url>
+  <url>
+    <loc>https://www.imgamedev.com/kd/khong-minh-than-toan.html</loc>
+  </url>
+  <url>
+    <loc>https://www.imgamedev.com/kd/64-que.html</loc>
+  </url>
+  <url>
+    <loc>https://www.imgamedev.com/kd/mai-hoa.html</loc>
+  </url>
+</urlset>

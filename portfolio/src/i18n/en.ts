@@ -15,14 +15,15 @@ export const en = {
     vi: 'Tiếng Việt',
   },
   meta: {
-    homeTitle: 'Mobile games, web games and playable ads',
+    homeTitle: 'Game developer and publishing partner',
     homeDescription:
-      'Scroll through a small game world to meet the developer, the workshop, the games and the way to get in touch.',
+      'IGD plays, makes and publishes games: mobile games, web games and playable ads. See the work and partner up to take your game to players worldwide.',
     aboutTitle: 'About Me',
     aboutDescription:
-      'Who I am, the skills and tools I work with, and the mobile games, web games and playable ads I have worked on.',
+      'About IGD, a game developer working with Unity and Cocos: skills, tools, and the mobile games, web games and playable ads I have worked on.',
     extrasTitle: 'Extras',
-    extrasDescription: 'Toolkits I share with other developers and the side projects I build next to my games.',
+    extrasDescription:
+      'Toolkits shared with other game developers, including a Unity AdMob pack and a Cocos playable ads pack, plus the side projects I build next to my games.',
     privacyTitle: 'Privacy Policy',
     privacyDescription: 'Privacy Policy for Im Game Dev: what is collected, how it is used and how to get in touch.',
   },

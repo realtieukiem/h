@@ -22,6 +22,8 @@ export interface ContactLink {
 export interface SiteConfig {
   brand: string;
   siteUrl: string;
+  socialImage: ImageAsset;
+  sitemapExtra: string[];
   profile: {
     name: string;
     role: Localized;

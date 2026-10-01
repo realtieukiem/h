@@ -3,6 +3,13 @@ import type { SiteConfig } from '../data/types';
 export const site: SiteConfig = {
   brand: "I'm Game Dev",
   siteUrl: 'https://www.imgamedev.com',
+  socialImage: {
+    src: 'media/social-card.png',
+    width: 1200,
+    height: 630,
+    alt: { en: "I'm Game Dev: I play games, make games and publish games." },
+  },
+  sitemapExtra: ['kd/', 'kd/khong-minh-than-toan.html', 'kd/64-que.html', 'kd/mai-hoa.html'],
 
   profile: {
     name: 'IGD',

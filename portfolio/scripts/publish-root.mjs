@@ -6,7 +6,7 @@ const project = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = resolve(project, 'dist');
 const target = resolve(project, '..');
 
-const MANAGED = ['index.html', '404.html', '.nojekyll', 'favicon.svg', 'about', 'extras', 'privacy-policy', 'vi', 'assets', 'media'];
+const MANAGED = ['index.html', '404.html', '.nojekyll', 'favicon.svg', 'sitemap.xml', 'robots.txt', 'about', 'extras', 'privacy-policy', 'vi', 'assets', 'media'];
 
 await stat(resolve(dist, 'index.html')).catch(() => {
   throw new Error('dist/index.html is missing. Run "npm run build" first.');
@@ -14,6 +14,8 @@ await stat(resolve(dist, 'index.html')).catch(() => {
 
 for (const name of MANAGED) {
   await rm(resolve(target, name), { recursive: true, force: true });
+  const exists = await stat(resolve(dist, name)).catch(() => null);
+  if (!exists) continue;
   await cp(resolve(dist, name), resolve(target, name), { recursive: true });
   console.log(`published ${name}`);
 }

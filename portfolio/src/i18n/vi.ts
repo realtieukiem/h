@@ -17,14 +17,15 @@ export const vi: Strings = {
     vi: 'Tiếng Việt',
   },
   meta: {
-    homeTitle: 'Game mobile, game web và playable ads',
+    homeTitle: 'Lập trình game và đối tác phát hành game',
     homeDescription:
-      'Cuộn qua một thế giới game thu nhỏ để gặp người làm game, xưởng kỹ năng, các tựa game và cách liên hệ.',
+      'IGD chơi game, làm game và phát hành game: game mobile, game web và playable ads. Xem sản phẩm và hợp tác để đưa game của bạn đến người chơi toàn thế giới.',
     aboutTitle: 'Giới thiệu',
     aboutDescription:
-      'Tôi là ai, các kỹ năng và công cụ tôi dùng, cùng những game mobile, game web và playable ads tôi đã tham gia.',
+      'Giới thiệu IGD, nhà phát triển game làm việc với Unity và Cocos: kỹ năng, công cụ, cùng những game mobile, game web và playable ads đã tham gia.',
     extrasTitle: 'Khác',
-    extrasDescription: 'Các bộ công cụ tôi chia sẻ cho nhà phát triển khác và những dự án phụ tôi làm bên cạnh game.',
+    extrasDescription:
+      'Bộ công cụ chia sẻ cho người làm game, gồm gói Unity AdMob và gói Cocos playable ads, cùng những dự án phụ tôi làm bên cạnh game.',
     privacyTitle: 'Chính sách quyền riêng tư',
     privacyDescription:
       'Chính sách quyền riêng tư của Im Game Dev: dữ liệu nào được thu thập, được dùng ra sao và cách liên hệ.',
