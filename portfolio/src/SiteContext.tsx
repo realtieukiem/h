@@ -1,28 +1,31 @@
 import { createContext, useContext } from 'react';
-import type { Localized, SiteData } from './data/types';
+import type { Locale, Localized, SiteData } from './data/types';
 import { getStrings, pick } from './i18n';
 import type { Strings } from './i18n/en';
-import { PAGE_PATHS, rootPrefix, type PageId } from './routes';
+import { rootPrefix, routePath, type PageId, type Route } from './routes';
 
 export interface SiteContextValue {
   page: PageId;
+  locale: Locale;
   data: SiteData;
   t: Strings;
   tr: (value: Localized) => string;
   asset: (path: string) => string;
   href: (page: PageId, suffix?: string) => string;
+  switchHref: (locale: Locale) => string;
 }
 
-export const createSiteContext = (page: PageId, data: SiteData): SiteContextValue => {
-  const root = rootPrefix(page);
-  const locale = data.site.locale;
+export const createSiteContext = ({ page, locale }: Route, data: SiteData): SiteContextValue => {
+  const root = rootPrefix(page, locale);
   return {
     page,
+    locale,
     data,
     t: getStrings(locale),
     tr: (value) => pick(value, locale),
     asset: (path) => root + path,
-    href: (target, suffix = '') => root + PAGE_PATHS[target] + suffix,
+    href: (target, suffix = '') => root + routePath(target, locale) + suffix,
+    switchHref: (target) => root + routePath(page, target),
   };
 };
 

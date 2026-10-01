@@ -13,6 +13,7 @@ const PATHS: Record<SkillIconName, React.JSX.Element> = {
       <path d="M6 9.500L16 15l10-5.500M16 15v11" />
     </>
   ),
+  code: <path d="M12 9l-7 7 7 7M20 9l7 7-7 7" />,
   play: (
     <>
       <rect x="4" y="6" width="24" height="20" rx="5" />

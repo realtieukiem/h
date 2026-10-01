@@ -161,7 +161,7 @@ function RosterItem({ game, category }: { game: Game; category: CategoryInfo }) 
           {(game.role || category.id === 'mobile') && (
             <p className="entry__role">
               <span>{t.game.role}: </span>
-              <Text value={game.role ? tr(game.role) : t.game.roleMissing} />
+              <Text value={tr(game.role ?? category.role)} />
             </p>
           )}
         </div>

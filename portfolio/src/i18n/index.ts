@@ -1,10 +1,8 @@
 import type { Locale, Localized } from '../data/types';
 import { en, type Strings } from './en';
+import { vi } from './vi';
 
-const dictionaries: Record<Locale, Strings> = {
-  en,
-  vi: en,
-};
+const dictionaries: Record<Locale, Strings> = { en, vi };
 
 export const getStrings = (locale: Locale): Strings => dictionaries[locale];
 

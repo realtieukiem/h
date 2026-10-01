@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import type { PageId } from '../routes';
+import { LOCALES, type PageId } from '../routes';
 import { useSite } from '../SiteContext';
 
 export function Navbar() {
-  const { page, data, t, asset, href } = useSite();
+  const { page, locale, data, t, asset, href, switchHref } = useSite();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -33,6 +33,22 @@ export function Navbar() {
           </span>
           <span className="brand__name">{data.site.brand}</span>
         </a>
+
+        <div className="lang" role="group" aria-label={t.lang.label}>
+          {LOCALES.map((code) => (
+            <a
+              key={code}
+              href={switchHref(code)}
+              lang={code}
+              hrefLang={code}
+              aria-current={code === locale ? 'true' : undefined}
+              title={t.lang[code]}
+            >
+              <span aria-hidden="true">{code.toUpperCase()}</span>
+              <span className="sr-only">{t.lang[code]}</span>
+            </a>
+          ))}
+        </div>
 
         <button
           type="button"

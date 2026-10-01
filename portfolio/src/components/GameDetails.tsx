@@ -128,11 +128,7 @@ function GameSheet({ game }: { game: Game }) {
             />
           ))}
         </div>
-      ) : (
-        <p className="game-sheet__noshot">
-          <Text value={t.game.shotMissing} />
-        </p>
-      )}
+      ) : null}
 
       <section>
         <h3>{t.game.about}</h3>
@@ -140,7 +136,7 @@ function GameSheet({ game }: { game: Game }) {
           game.description.map((paragraph) => <p key={paragraph.en}>{tr(paragraph)}</p>)
         ) : (
           <p>
-            <Text value={t.game.descriptionMissing} />
+            <Text value={category ? tr(category.about) : t.game.descriptionMissing} />
           </p>
         )}
       </section>
@@ -160,7 +156,7 @@ function GameSheet({ game }: { game: Game }) {
         <section>
           <h3>{t.game.role}</h3>
           <p>
-            <Text value={game.role ? tr(game.role) : t.game.roleMissing} />
+            <Text value={tr(game.role ?? category?.role ?? { en: t.game.roleMissing })} />
           </p>
         </section>
         <section>
@@ -173,7 +169,7 @@ function GameSheet({ game }: { game: Game }) {
             </ul>
           ) : (
             <p>
-              <Text value={t.game.workMissing} />
+              <Text value={category ? tr(category.work) : t.game.workMissing} />
             </p>
           )}
         </section>

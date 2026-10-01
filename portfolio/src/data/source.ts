@@ -1,6 +1,7 @@
 import { toolkits, sideProjects } from '../config/extras';
 import { categories, games } from '../config/games';
 import { privacy } from '../config/privacy';
+import { privacyVi } from '../config/privacy-vi';
 import { site } from '../config/site';
 import { skills } from '../config/skills';
 import type { SiteData } from './types';
@@ -10,7 +11,7 @@ export interface DataSource {
 }
 
 export const staticSource: DataSource = {
-  load: async () => ({ site, categories, games, skills, toolkits, sideProjects, privacy }),
+  load: async () => ({ site, categories, games, skills, toolkits, sideProjects, privacy: { en: privacy, vi: privacyVi } }),
 };
 
 export const dataSource: DataSource = staticSource;

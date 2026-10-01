@@ -1,6 +1,6 @@
 import type { SiteData } from './data/types';
 import { getStrings } from './i18n';
-import { PAGE_PATHS, type PageId } from './routes';
+import { routePath, type Route } from './routes';
 
 export interface PageMeta {
   title: string;
@@ -8,11 +8,11 @@ export interface PageMeta {
   canonical: string;
 }
 
-export const pageMeta = (page: PageId, data: SiteData): PageMeta => {
-  const t = getStrings(data.site.locale).meta;
+export const pageMeta = ({ page, locale }: Route, data: SiteData): PageMeta => {
+  const t = getStrings(locale).meta;
   const brand = data.site.brand;
   const base = data.site.siteUrl.replace(/\/+$/, '');
-  const canonical = base ? `${base}/${PAGE_PATHS[page]}` : '';
+  const canonical = base ? `${base}/${routePath(page, locale)}` : '';
 
   if (page === 'about') return { title: `${t.aboutTitle} · ${brand}`, description: t.aboutDescription, canonical };
   if (page === 'extras') return { title: `${t.extrasTitle} · ${brand}`, description: t.extrasDescription, canonical };

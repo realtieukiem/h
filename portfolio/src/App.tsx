@@ -8,11 +8,11 @@ import { About } from './pages/About';
 import { Extras } from './pages/Extras';
 import { Home } from './pages/Home';
 import { Privacy } from './pages/Privacy';
-import type { PageId } from './routes';
+import type { PageId, Route } from './routes';
 import { SiteProvider, createSiteContext } from './SiteContext';
 
 interface AppProps {
-  page: PageId;
+  route: Route;
   data: SiteData;
 }
 
@@ -23,13 +23,15 @@ const PAGES: Record<PageId, () => React.JSX.Element> = {
   privacy: Privacy,
 };
 
-export function App({ page, data }: AppProps) {
-  const context = useMemo(() => createSiteContext(page, data), [page, data]);
+export function App({ route, data }: AppProps) {
+  const context = useMemo(() => createSiteContext(route, data), [route, data]);
+  const { page } = route;
   const Page = PAGES[page];
 
   useEffect(() => {
-    document.title = pageMeta(page, data).title;
-  }, [page, data]);
+    document.title = pageMeta(route, data).title;
+    document.documentElement.lang = route.locale;
+  }, [route, data]);
 
   return (
     <SiteProvider value={context}>

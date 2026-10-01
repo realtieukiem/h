@@ -930,3 +930,9 @@ html[data-motion='reduced'] .hud__coins {
     padding: 0 9px;
   }
 }
+
+@media (max-width: 480px) {
+  .hud__coins {
+    display: none;
+  }
+}

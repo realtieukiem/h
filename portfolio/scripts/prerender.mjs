@@ -12,33 +12,44 @@ const escapeHtml = (value) =>
 
 let brand = '';
 
-for (const page of server.PAGE_IDS) {
-  const prefix = server.rootPrefix(page);
-  const result = await server.render(page);
-  brand = result.brand;
+for (const locale of server.LOCALES) {
+  for (const page of server.PAGE_IDS) {
+    const route = { page, locale };
+    const path = server.routePath(page, locale);
+    const prefix = server.rootPrefix(page, locale);
+    const result = await server.render(route);
+    brand = result.brand;
 
-  const head = [
-    `<title>${escapeHtml(result.meta.title)}</title>`,
-    `<meta name="description" content="${escapeHtml(result.meta.description)}" />`,
-    `<meta property="og:title" content="${escapeHtml(result.meta.title)}" />`,
-    `<meta property="og:description" content="${escapeHtml(result.meta.description)}" />`,
-    `<meta property="og:type" content="website" />`,
-    result.meta.canonical ? `<link rel="canonical" href="${escapeHtml(result.meta.canonical)}" />` : '',
-    result.meta.canonical ? `<meta property="og:url" content="${escapeHtml(result.meta.canonical)}" />` : '',
-  ]
-    .filter(Boolean)
-    .join('\n    ');
+    const alternates = result.siteUrl
+      ? server.LOCALES.map(
+          (code) => `<link rel="alternate" hreflang="${code}" href="${result.siteUrl}/${server.routePath(page, code)}" />`,
+        )
+      : [];
 
-  const html = template
-    .replace(/(href|src)="\.\//g, `$1="${prefix}`)
-    .replace('<html lang="en">', `<html lang="${result.lang}">`)
-    .replace('<!--head-->', head)
-    .replace('<!--app-->', result.html);
+    const head = [
+      `<title>${escapeHtml(result.meta.title)}</title>`,
+      `<meta name="description" content="${escapeHtml(result.meta.description)}" />`,
+      `<meta property="og:title" content="${escapeHtml(result.meta.title)}" />`,
+      `<meta property="og:description" content="${escapeHtml(result.meta.description)}" />`,
+      `<meta property="og:type" content="website" />`,
+      result.meta.canonical ? `<link rel="canonical" href="${escapeHtml(result.meta.canonical)}" />` : '',
+      result.meta.canonical ? `<meta property="og:url" content="${escapeHtml(result.meta.canonical)}" />` : '',
+      ...alternates,
+    ]
+      .filter(Boolean)
+      .join('\n    ');
 
-  const file = resolve(dist, server.PAGE_PATHS[page], 'index.html');
-  await mkdir(dirname(file), { recursive: true });
-  await writeFile(file, html);
-  console.log(`prerendered ${server.PAGE_PATHS[page] || '/'} (${(html.length / 1024).toFixed(1)} kB)`);
+    const html = template
+      .replace(/(href|src)="\.\//g, `$1="${prefix}`)
+      .replace('<html lang="en">', `<html lang="${locale}">`)
+      .replace('<!--head-->', head)
+      .replace('<!--app-->', result.html);
+
+    const file = resolve(dist, path, 'index.html');
+    await mkdir(dirname(file), { recursive: true });
+    await writeFile(file, html);
+    console.log(`prerendered ${path || '/'} (${(html.length / 1024).toFixed(1)} kB)`);
+  }
 }
 
 const notFound = `<!doctype html>

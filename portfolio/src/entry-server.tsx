@@ -2,16 +2,16 @@ import { renderToString } from 'react-dom/server';
 import { App } from './App';
 import { dataSource } from './data/source';
 import { pageMeta } from './meta';
-import { PAGE_IDS, PAGE_PATHS, rootPrefix, type PageId } from './routes';
+import { LOCALES, PAGE_IDS, rootPrefix, routePath, type Route } from './routes';
 
-export { PAGE_IDS, PAGE_PATHS, rootPrefix };
+export { LOCALES, PAGE_IDS, rootPrefix, routePath };
 
-export async function render(page: PageId) {
+export async function render(route: Route) {
   const data = await dataSource.load();
   return {
-    html: renderToString(<App page={page} data={data} />),
-    meta: pageMeta(page, data),
-    lang: data.site.locale,
+    html: renderToString(<App route={route} data={data} />),
+    meta: pageMeta(route, data),
     brand: data.site.brand,
+    siteUrl: data.site.siteUrl.replace(/\/+$/, ''),
   };
 }

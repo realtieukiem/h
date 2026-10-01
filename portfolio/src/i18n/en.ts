@@ -9,6 +9,11 @@ export const en = {
     primary: 'Primary',
     skip: 'Skip to main content',
   },
+  lang: {
+    label: 'Language',
+    en: 'English',
+    vi: 'Tiếng Việt',
+  },
   meta: {
     homeTitle: 'Mobile games, web games and playable ads',
     homeDescription:
@@ -119,6 +124,8 @@ export const en = {
     contents: 'Contents',
     print: 'Print this page',
     top: 'Back to top',
+    translationNote: '',
+    original: '',
   },
   footer: {
     tagline: 'Mobile games, web games and playable ads.',

@@ -3,8 +3,8 @@ import type { PolicyBlock } from '../data/types';
 import { useSite } from '../SiteContext';
 
 export function Privacy() {
-  const { data, t } = useSite();
-  const policy = data.privacy;
+  const { data, t, locale, switchHref } = useSite();
+  const policy = data.privacy[locale] ?? data.privacy.en;
 
   return (
     <div className="policy">
@@ -37,6 +37,14 @@ export function Privacy() {
             </dd>
           </div>
         </dl>
+        {t.privacy.translationNote && (
+          <p className="policy__note">
+            {t.privacy.translationNote}{' '}
+            <a href={switchHref('en')} lang="en" hrefLang="en">
+              {t.privacy.original}
+            </a>
+          </p>
+        )}
         <button type="button" className="button button--small policy__print" onClick={() => window.print()}>
           {t.privacy.print}
         </button>

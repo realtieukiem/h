@@ -22,7 +22,6 @@ export interface ContactLink {
 export interface SiteConfig {
   brand: string;
   siteUrl: string;
-  locale: Locale;
   profile: {
     name: string;
     role: Localized;
@@ -72,9 +71,12 @@ export interface CategoryInfo {
   singular: Localized;
   blurb: Localized;
   platforms: string[];
+  role: Localized;
+  work: Localized;
+  about: Localized;
 }
 
-export type SkillIcon = 'engine' | 'blocks' | 'play' | 'phone' | 'globe' | 'coin' | 'plus';
+export type SkillIcon = 'engine' | 'blocks' | 'code' | 'play' | 'phone' | 'globe' | 'coin' | 'plus';
 
 export interface Skill {
   id: string;
@@ -121,5 +123,5 @@ export interface SiteData {
   skills: Skill[];
   toolkits: ExtraLink[];
   sideProjects: ExtraLink[];
-  privacy: PrivacyPolicy;
+  privacy: { en: PrivacyPolicy } & Partial<Record<Locale, PrivacyPolicy>>;
 }

@@ -1,7 +1,7 @@
 # I'm Game Dev — portfolio site
 
-A game-styled personal portfolio: a scroll-driven Home journey, an About Me page, an Extras page
-(toolkits and side projects) and a Privacy Policy.
+A game-styled personal portfolio in English and Vietnamese: a scroll-driven Home journey, an About Me page,
+an Extras page (toolkits and side projects) and a Privacy Policy.
 Built with React, TypeScript and Vite, prerendered to plain static files and served by GitHub Pages.
 
 - Live (GitHub Pages): https://realtieukiem.github.io/h/
@@ -12,7 +12,7 @@ Built with React, TypeScript and Vite, prerendered to plain static files and ser
 | Path | What it is |
 | --- | --- |
 | `portfolio/` | The source project. **Edit here.** |
-| `index.html`, `about/`, `extras/`, `privacy-policy/`, `404.html`, `assets/`, `media/`, `favicon.svg`, `.nojekyll` | The **built** site. Generated — do not edit by hand, changes are overwritten. |
+| `index.html`, `about/`, `extras/`, `privacy-policy/`, `vi/`, `404.html`, `assets/`, `media/`, `favicon.svg`, `.nojekyll` | The **built** site. Generated — do not edit by hand, changes are overwritten. |
 | `.github/workflows/deploy.yml` | Rebuilds the site and commits the result to the repository root on every push to `main` that touches `portfolio/`. |
 | `api/`, `kd/`, `nuoitoi/`, `vlt/` | Older standalone pages. The portfolio build never touches them. |
 
@@ -55,8 +55,9 @@ Everything you are likely to change is in `portfolio/src/config/`:
 | `skills.ts` | The skills shown in the workshop and on About Me. |
 | `extras.ts` | Toolkits and side projects on the Extras page. |
 | `privacy.ts` | The Privacy Policy text, effective date and contact. |
+| `privacy-vi.ts` | The Vietnamese translation of the Privacy Policy. |
 
-Interface wording (buttons, headings, labels) is in `portfolio/src/i18n/en.ts`.
+Interface wording (buttons, headings, labels) is in `portfolio/src/i18n/en.ts` and `vi.ts`.
 
 Any text written as `[Like this]` is a placeholder. It is drawn with a dashed gold outline so it is easy to
 spot on the page; replace the text and the outline goes away.
@@ -102,11 +103,19 @@ Keep the file name to replace an image in place. If the size changes, update `wi
 in the config so the page does not jump while loading. The mascot stands on the sand patch of each island;
 if you redraw an island and move the patch, adjust `stopX` / `stopY` on the matching `<Island>`.
 
-### Add Vietnamese later
+### Two languages
 
-Game and profile texts already accept `{ en: '...', vi: '...' }`. For the interface, copy
-`portfolio/src/i18n/en.ts` to `vi.ts`, translate it, register it in `portfolio/src/i18n/index.ts`, then set
-`locale: 'vi'` in `site.ts`.
+English is served at the site root and Vietnamese under `/vi/` (`/vi/about/`, `/vi/extras/`,
+`/vi/privacy-policy/`). The EN / VI switch in the navbar opens the same page in the other language.
+
+- Content texts are written as `{ en: '...', vi: '...' }`. When `vi` is missing, the English text is shown.
+- Interface wording lives in `portfolio/src/i18n/en.ts` and `vi.ts`. The two files must have the same keys;
+  the build fails if one is missing.
+- The Privacy Policy has one file per language. The English file is the governing text and the Vietnamese
+  page says so; when you change one, change the other.
+- To add a third language: add its code to `Locale` in `src/data/types.ts` and to `LOCALES` in
+  `src/routes.ts`, add a dictionary in `src/i18n/`, and add its folder to `MANAGED` in
+  `scripts/publish-root.mjs` and to the `git add` line in `.github/workflows/deploy.yml`.
 
 ### Load data from an API later
 
@@ -160,28 +169,30 @@ Good to know:
 - Verifying the domain under your GitHub account (**Settings → Pages → Verified domains**) stops anyone else
   from claiming it.
 
-## Information still needed
+## Content written for you — please check
 
-Placeholders on the site today:
+Nothing on the site is a placeholder any more. These parts were written on your behalf from what the
+previous site shows, so read them once and correct anything that is not true:
 
-- **How you make games** (`profile.approach`) and **where you are heading** (`profile.direction`).
-- **A larger avatar.** The current one was taken from the old site and is only 136 × 170 px.
-- **Skills.** The list contains only what the current site shows (Unity, Cocos, playable ads, mobile and web
-  games, AdMob). Add languages, tools and disciplines in `skills.ts`.
-- **Per game:** your role and what you built. For web games and playable ads also genre, a short
-  description, a gameplay image and a public link where one exists.
-- **Icons** for Block Drop, Twisted Tangle and Node Breaker.
+- **How I make games** and **Where I am heading** (`site.ts` → `profile.approach`, `profile.direction`).
+- **Skills.** "C# & TypeScript" was added because Unity and Cocos are listed. Add or remove in `skills.ts`.
+- **Genres** of the web games and playable ads were inferred from their titles and icons (`games.ts`).
+- **Role and work per game.** Every game without its own `role` / `contributions` shows the default of its
+  category (`categories` in `games.ts`): "Game developer" for mobile and web games, "Playable ad developer"
+  for playables. Set `role` and `contributions` on a game to replace the default for that game.
+- **Icons** for Block Drop, Twisted Tangle and Node Breaker are square crops of their gameplay image.
+- **Avatar** is the one from the previous site, only 136 x 170 px. A larger image will look sharper.
+- Web games and playable ads have no description of their own, no gameplay image and no public link yet.
 
 Things to confirm:
 
 - **Google Play.** Checked on 2026-10-01: the listings for Block Drop, Twisted Tangle and Node Breaker no
   longer exist, so those games have no store button. The Ocean Odyssey listing is now titled
   "Craft Island: Survival Builder"; the button is kept with a note. Soul Survival is live.
-- **Mobile game descriptions** were translated to English from the Vietnamese text on the current site; the
-  original is kept in the `vi` field.
+- **Mobile game descriptions** in English were translated from the Vietnamese text on the previous site.
 - **Playable ad highlights** ("Top 1 spend Mintegral, Cost > 300k $" and similar) are copied word for word
-  from the current site.
-- **Phone number** is shown because it is on the current contact page. Set `phone: ''` in `site.ts` to hide it.
+  from the previous site.
+- **Phone number** is shown because it is on the previous contact page. Set `phone: ''` in `site.ts` to hide it.
 
 Privacy Policy — sections I to IX and the contact section are the published text, carried over word for word
 (effective 2023-11-13). Sections X to XIII were added on 2026-10-01 after a review of rules that changed
