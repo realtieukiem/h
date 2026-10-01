@@ -4,7 +4,7 @@ A game-styled personal portfolio in English and Vietnamese: a scroll-driven Home
 an Extras page (toolkits and side projects) and a Privacy Policy.
 Built with React, TypeScript and Vite, prerendered to plain static files and served by GitHub Pages.
 
-- Live: https://www.imgamedev.com (custom domain attached on 2026-10-01; `realtieukiem.github.io/h/` redirects to it)
+- Live: https://imgamedev.com (custom domain attached on 2026-10-01; `www.imgamedev.com` and `realtieukiem.github.io/h/` redirect to it)
 
 ## How this repository is laid out
 
@@ -132,8 +132,13 @@ Nothing in the GitHub Pages settings has to change: the source stays "Deploy fro
 
 ## Custom domain
 
-The steps below were carried out on 2026-10-01: `www` now points to `realtieukiem.github.io` and the
-repository holds a `CNAME` file. They are kept as a record and for rolling back. DNS as read **before** the switch:
+The site's address is `https://imgamedev.com`, without `www`. The `CNAME` file in the repository root holds
+that name, and it is what GitHub Pages reads: `www.imgamedev.com` redirects to it. To change the primary
+name, change the `CNAME` file and `siteUrl` in `portfolio/src/config/site.ts` together, then run
+`npm run release` and push.
+
+The steps below were carried out on 2026-10-01, first with `www` as the primary name. They are kept as a
+record and for rolling back. DNS as read **before** the switch:
 
 | Record | Value | Meaning |
 | --- | --- | --- |
@@ -158,12 +163,12 @@ exactly as they are — only the two records below need to change.
      `185.199.110.153`, `185.199.111.153` and remove the forwarding TXT record. GitHub then redirects the
      root domain to `www` and covers it with HTTPS as well.
 5. Back in **Settings → Pages**, wait for the DNS check and the certificate, then tick **Enforce HTTPS**.
-6. Set `siteUrl: 'https://www.imgamedev.com'` in `portfolio/src/config/site.ts` so pages get a canonical URL.
+6. Set `siteUrl` to the primary address in `portfolio/src/config/site.ts` so pages get a canonical URL.
 
 Good to know:
 
 - The custom domain applies to the whole repository, so `kd/` moves with it
-  (`https://www.imgamedev.com/kd/`). The old `realtieukiem.github.io/h/...` addresses redirect automatically.
+  (`https://imgamedev.com/kd/`). The old `realtieukiem.github.io/h/...` addresses redirect automatically.
 - The older `api/`, `nuoitoi/` and `vlt/` pages were taken off `main` on 2026-10-01. They are kept on the
   `old` branch, which holds the repository as it was before the portfolio.
 - Old Google Sites addresses (`/home`, `/game`, `/game/gamemobile`, `/package`, `/other`, `/contact`) are
@@ -188,8 +193,8 @@ What the build cannot do, done once by hand:
 
 1. Open <https://search.google.com/search-console>, add the property `imgamedev.com` (type **Domain**) and
    verify it with the TXT or CNAME record it gives you, at the DNS provider.
-2. **Sitemaps** → submit `https://www.imgamedev.com/sitemap.xml`.
-3. **URL inspection** → paste `https://www.imgamedev.com/` → **Request indexing**. Repeat for `/vi/` and
+2. **Sitemaps** → submit `https://imgamedev.com/sitemap.xml`.
+3. **URL inspection** → paste `https://imgamedev.com/` → **Request indexing**. Repeat for `/vi/` and
    `/about/`.
 
 No analytics script is added by any of this. Search Console reads Google's own data, not the visitor's

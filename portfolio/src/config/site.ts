@@ -2,7 +2,7 @@ import type { SiteConfig } from '../data/types';
 
 export const site: SiteConfig = {
   brand: "I'm Game Dev",
-  siteUrl: 'https://www.imgamedev.com',
+  siteUrl: 'https://imgamedev.com',
   socialImage: {
     src: 'media/social-card.png',
     width: 1200,
