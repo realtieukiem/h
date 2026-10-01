@@ -5,7 +5,7 @@ export const privacy: PrivacyPolicy = {
   responsibleParty: 'Im Game Dev',
   contactEmail: 'realtieukiem@gmail.com',
   effectiveDate: '2023-11-13',
-  lastUpdated: '',
+  lastUpdated: '2026-10-01',
   sections: [
     {
       id: 'privacy-policy',
@@ -153,11 +153,95 @@ export const privacy: PrivacyPolicy = {
           type: 'p',
           text: 'This policy is effective as of 2023-11-13',
         },
+        {
+          type: 'p',
+          text: 'Sections X to XIII were added on 2026-10-01. Sections I to IX are unchanged.',
+        },
+      ],
+    },
+    {
+      id: 'your-privacy-rights',
+      numeral: 'X',
+      title: 'Your Privacy Rights',
+      blocks: [
+        {
+          type: 'p',
+          text: 'Depending on where you live, data protection laws may give you rights over your personal information. These laws include the General Data Protection Regulation in the European Union and the United Kingdom, the Law on Personal Data Protection of Vietnam (Law No. 91/2025/QH15, in effect from 1 January 2026) and state privacy laws in the United States such as the California Consumer Privacy Act.',
+        },
+        {
+          type: 'p',
+          text: 'Depending on the law that applies to you, these rights may include the right to:',
+        },
+        {
+          type: 'list',
+          items: [
+            'Be informed about how your personal information is processed;',
+            'Access your personal information and receive a copy of it;',
+            'Have inaccurate personal information corrected;',
+            'Have your personal information deleted;',
+            'Restrict or object to the processing of your personal information;',
+            'Give, refuse or withdraw your consent at any time; and',
+            'Lodge a complaint with the data protection authority where you live.',
+          ],
+        },
+        {
+          type: 'p',
+          text: 'To use any of these rights, contact me at the email address in the Contact Us section. I will respond within the time required by the law that applies to you. Because the information described in this policy is collected by third-party services, I may need to direct you to the provider concerned, listed in section II, to complete your request.',
+        },
+      ],
+    },
+    {
+      id: 'advertising-and-your-choices',
+      numeral: 'XI',
+      title: 'Advertising and Your Choices',
+      blocks: [
+        {
+          type: 'p',
+          text: 'The third-party advertising services listed in section II may use the advertising ID of your device to show and measure ads.',
+        },
+        {
+          type: 'p',
+          text: 'You can limit personalised advertising at any time in your device settings. On Android, you can reset or delete the advertising ID under Settings, in the Ads section of the Privacy or Google menu. On iOS, you can turn off tracking requests under Settings, Privacy & Security, Tracking.',
+        },
+      ],
+    },
+    {
+      id: 'parents-and-guardians',
+      numeral: 'XII',
+      title: 'Parents and Guardians',
+      blocks: [
+        {
+          type: 'p',
+          text: 'This section adds to section VIII. The Children’s Online Privacy Protection Rule in the United States was amended in 2025, with compliance required from 22 April 2026. If you are a parent or guardian, you may contact me to review the personal information your child has provided, to ask for it to be deleted and to refuse any further collection or use of it.',
+        },
+        {
+          type: 'p',
+          text: 'Some jurisdictions now require app stores to share the age category of a user, or a parental consent signal, with the apps that user installs. If an app store provides such a signal, it is used only to comply with those laws.',
+        },
+      ],
+    },
+    {
+      id: 'retention-deletion-and-international-processing',
+      numeral: 'XIII',
+      title: 'Retention, Deletion and International Processing',
+      blocks: [
+        {
+          type: 'p',
+          text: 'Information that an app stores on your device is removed when you clear the data of the app or uninstall it. Information held by the third-party services listed in section II is kept according to their own policies.',
+        },
+        {
+          type: 'p',
+          text: 'You may ask me to delete any personal information I hold about you by contacting me at the email address in the Contact Us section.',
+        },
+        {
+          type: 'p',
+          text: 'The third-party services listed in section II may process information on servers located outside the country where you live.',
+        },
       ],
     },
     {
       id: 'contact-us',
-      numeral: 'X',
+      numeral: 'XIV',
       title: 'Contact Us',
       blocks: [
         {

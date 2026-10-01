@@ -6,7 +6,7 @@ export const site: SiteConfig = {
   locale: 'en',
 
   profile: {
-    name: '[Your Name]',
+    name: 'IGD',
     role: { en: 'Game Developer', vi: 'Nhà phát triển game' },
     headline: {
       en: 'I make mobile games, web games and playable ads.',

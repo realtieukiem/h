@@ -164,7 +164,6 @@ Good to know:
 
 Placeholders on the site today:
 
-- **Your name** (`site.ts` → `profile.name`). The brand "I'm Game Dev" is taken from the current site.
 - **How you make games** (`profile.approach`) and **where you are heading** (`profile.direction`).
 - **A larger avatar.** The current one was taken from the old site and is only 136 × 170 px.
 - **Skills.** The list contains only what the current site shows (Unity, Cocos, playable ads, mobile and web
@@ -184,18 +183,27 @@ Things to confirm:
   from the current site.
 - **Phone number** is shown because it is on the current contact page. Set `phone: ''` in `site.ts` to hide it.
 
-Privacy Policy — the published text is carried over word for word (effective 2023-11-13); only the layout
-changed. It was written for "the Im Game Dev app". To make it cover the website and each game accurately,
-these facts are needed, and none of them were assumed:
+Privacy Policy — sections I to IX and the contact section are the published text, carried over word for word
+(effective 2023-11-13). Sections X to XIII were added on 2026-10-01 after a review of rules that changed
+since then: Vietnam's Law on Personal Data Protection (in effect from 1 January 2026), the amended US COPPA
+Rule (compliance from 22 April 2026), app store age-signal laws and Google Play's User Data policy. The
+additions were written without assuming anything about what the games collect, and they are not legal
+advice — have them reviewed before relying on them. They commit you to three things: answering privacy
+requests sent by email, deleting personal information you hold on request, and using app store age signals
+only for legal compliance.
+
+The policy was written for "the Im Game Dev app". To make it cover the website and each game accurately,
+these facts are still needed, and none of them were assumed:
 
 - Scope: which games and whether the website itself is covered.
 - What data is actually collected, from where, and what it is used for — for the website and for each game.
 - The advertising, analytics and other third-party SDKs actually in use. The text names Google Play
   Services, AdMob and Facebook.
+- Whether the games show a consent prompt for personalised ads in the EEA and the UK, and whether any game
+  has user accounts (Google Play then requires an account deletion path).
 - Sharing, retention period and security measures.
-- Privacy rights and how to send a data request.
 - Whether any game is directed at children.
-- How changes are announced, the date of the last update, and the legal name of the responsible party.
+- The legal name of the responsible party.
 - The policy refers to "Terms and Conditions"; no such page exists on the site.
 
 The website itself loads no analytics, trackers or third-party scripts. Fonts are self-hosted.
