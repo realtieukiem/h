@@ -4,8 +4,7 @@ A game-styled personal portfolio in English and Vietnamese: a scroll-driven Home
 an Extras page (toolkits and side projects) and a Privacy Policy.
 Built with React, TypeScript and Vite, prerendered to plain static files and served by GitHub Pages.
 
-- Live (GitHub Pages): https://realtieukiem.github.io/h/
-- Intended custom domain: https://www.imgamedev.com (not switched yet — see [Custom domain](#custom-domain))
+- Live: https://www.imgamedev.com (custom domain attached on 2026-10-01; `realtieukiem.github.io/h/` redirects to it)
 
 ## How this repository is laid out
 
@@ -133,7 +132,8 @@ Nothing in the GitHub Pages settings has to change: the source stays "Deploy fro
 
 ## Custom domain
 
-The domain was **not** touched. DNS as read on 2026-10-01:
+The steps below were carried out on 2026-10-01: `www` now points to `realtieukiem.github.io` and the
+repository holds a `CNAME` file. They are kept as a record and for rolling back. DNS as read **before** the switch:
 
 | Record | Value | Meaning |
 | --- | --- | --- |

@@ -2,7 +2,7 @@ import type { SiteConfig } from '../data/types';
 
 export const site: SiteConfig = {
   brand: "I'm Game Dev",
-  siteUrl: '',
+  siteUrl: 'https://www.imgamedev.com',
 
   profile: {
     name: 'IGD',
