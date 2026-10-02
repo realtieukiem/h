@@ -63,7 +63,7 @@ export const vi: Strings = {
     details: 'Xem chi tiết',
     detailsFor: 'Xem chi tiết:',
     more: 'game nữa',
-    browseAll: 'Xem toàn bộ game',
+    less: 'Thu gọn',
   },
   contact: {
     kicker: 'Khu 4 · Trạm Liên hệ',
@@ -85,11 +85,6 @@ export const vi: Strings = {
   },
   about: {
     directionTitle: 'Định hướng của tôi',
-    skillsTitle: 'Kỹ năng và công cụ',
-    gamesTitle: 'Những game tôi đã tham gia',
-    gamesLead: 'Game mobile, game web và playable ads. Mở từng game để xem chi tiết.',
-    contactTitle: 'Hợp tác cùng tôi',
-    jump: 'Đi tới loại game',
   },
   extras: {
     title: 'Bộ công cụ và dự án phụ',

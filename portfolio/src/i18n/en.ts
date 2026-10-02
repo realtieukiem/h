@@ -60,7 +60,7 @@ export const en = {
     details: 'View details',
     detailsFor: 'View details:',
     more: 'more',
-    browseAll: 'Browse every game',
+    less: 'Show less',
   },
   contact: {
     kicker: 'Area 4 · Contact Checkpoint',
@@ -82,11 +82,6 @@ export const en = {
   },
   about: {
     directionTitle: 'Where I am heading',
-    skillsTitle: 'Skills and tools',
-    gamesTitle: 'Games I have worked on',
-    gamesLead: 'Mobile games, web games and playable ads. Open any of them for the details.',
-    contactTitle: 'Partner with me',
-    jump: 'Jump to a game type',
   },
   extras: {
     title: 'Toolkits and side projects',

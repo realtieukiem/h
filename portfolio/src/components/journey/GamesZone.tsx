@@ -1,17 +1,20 @@
-import type { CSSProperties } from 'react';
+import { useState, type CSSProperties } from 'react';
 import type { CategoryInfo, Game } from '../../data/types';
 import { useSite } from '../../SiteContext';
 import { useGameDetails } from '../GameDetails';
 import { GameIcon } from '../GameIcon';
 import { Island } from './Island';
 
+const PORTAL_LIMIT = 6;
 const STATION_LIMIT = 6;
 
 const order = (index: number) => ({ '--i': Math.min(index, 6) }) as CSSProperties;
 
 export function GamesZone() {
-  const { data, t, tr, href } = useSite();
+  const { data, t, tr } = useSite();
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
   const byCategory = (category: CategoryInfo) => data.games.filter((game) => game.category === category.id);
+  const toggle = (id: string) => setExpanded((value) => ({ ...value, [id]: !value[id] }));
 
   return (
     <section id="games" className="zone zone--games" data-zone aria-labelledby="games-title">
@@ -42,6 +45,11 @@ export function GamesZone() {
         {data.categories.map((category) => {
           const games = byCategory(category);
           if (!games.length) return null;
+          const isOpen = !!expanded[category.id];
+          const limit = category.id === 'mobile' ? PORTAL_LIMIT : STATION_LIMIT;
+          const shown = isOpen ? games : games.slice(0, limit);
+          const hidden = games.length - limit;
+          const listId = `games-${category.id}`;
           return (
             <div key={category.id} className="cluster" data-scrub>
               <div className="cluster__head reveal" style={order(0)}>
@@ -49,25 +57,46 @@ export function GamesZone() {
                 <p>{tr(category.blurb)}</p>
               </div>
               {category.id === 'mobile' ? (
-                <ul className="portals">
-                  {games.map((game, index) => (
-                    <Portal key={game.slug} game={game} index={index} />
-                  ))}
-                </ul>
+                <>
+                  <ul id={listId} className="portals">
+                    {shown.map((game, index) => (
+                      <Portal key={game.slug} game={game} index={index} />
+                    ))}
+                  </ul>
+                  {hidden > 0 && (
+                    <p className="cluster__more">
+                      <button
+                        type="button"
+                        className="button button--ghost"
+                        aria-expanded={isOpen}
+                        aria-controls={listId}
+                        onClick={() => toggle(category.id)}
+                      >
+                        {isOpen ? t.games.less : `+${hidden} ${t.games.more}`}
+                      </button>
+                    </p>
+                  )}
+                </>
               ) : (
-                <ul className="stations">
-                  {games.slice(0, STATION_LIMIT).map((game, index) => (
+                <ul id={listId} className="stations">
+                  {shown.map((game, index) => (
                     <Station key={game.slug} game={game} index={index} />
                   ))}
-                  {games.length > STATION_LIMIT && (
+                  {hidden > 0 && (
                     <li className="reveal" style={order(STATION_LIMIT)}>
-                      <a className="station station--more" href={href('about', `#${category.anchor}`)}>
-                        <span className="station__count">+{games.length - STATION_LIMIT}</span>
+                      <button
+                        type="button"
+                        className="station station--more"
+                        aria-expanded={isOpen}
+                        aria-controls={listId}
+                        onClick={() => toggle(category.id)}
+                      >
+                        <span className="station__count">{isOpen ? '−' : `+${hidden}`}</span>
                         <span className="station__name">
-                          {t.games.more}
+                          {isOpen ? t.games.less : t.games.more}
                           <span className="sr-only"> {tr(category.label)}</span>
                         </span>
-                      </a>
+                      </button>
                     </li>
                   )}
                 </ul>
@@ -75,12 +104,6 @@ export function GamesZone() {
             </div>
           );
         })}
-
-        <p className="games-all">
-          <a className="button button--ghost" href={href('about', '#games')}>
-            {t.games.browseAll}
-          </a>
-        </p>
       </div>
     </section>
   );

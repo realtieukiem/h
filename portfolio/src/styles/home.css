@@ -575,8 +575,12 @@
   color: var(--cyan-200);
 }
 
-.games-all {
-  margin-top: 56px;
+.cluster__more {
+  margin-top: 28px;
+  text-align: center;
+}
+
+.zone--games .zone__wide {
   padding-bottom: 120px;
 }
 
@@ -870,7 +874,7 @@ html[data-motion='reduced'] .hud__coins {
     margin-bottom: 16px;
   }
 
-  .games-all {
+  .zone--games .zone__wide {
     padding-bottom: 70px;
   }
 
